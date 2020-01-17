@@ -1,6 +1,6 @@
 # PV Rooftops
 
-The PV Rooftops dataset is provided in Parquet format partitioned by city.  There are 4 core datasets stored in S3:
+The PV Rooftops dataset is provided in Parquet format partitioned by city.  There are 4 core datasets stored in S3 partitioned by region(city)-year for downloads of single cities or to allow city-specific queries or queries across the dataset using Glue/Athena:
 
 /aspects   
 
