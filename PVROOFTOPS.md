@@ -4,8 +4,10 @@ The PV Rooftops dataset is provided in Parquet format partitioned by city.  Ther
 
 /aspects
 
-  `gid` bigint, 
+  `gid` bigint,  
+  
   `city` string, 
+  
   `state` string, 
   `year` bigint, 
   `bldg_fid` bigint, 
