@@ -1,7 +1,6 @@
-# Tracking the Sun
+# LBNL Tracking the Sun
 
-The Tracking the Sun dataset is provided in Parquet format partitioned by city, this allows data queries using Glue/Athena. However, with the development of Tracking the Sun dataset, the dataset 
-schema/columns may change each year.
+The Tracking the Sun dataset is provided in Parquet format partitioned by `state`, this allows data queries using Glue/Athena. Please notice that, with the development of Tracking the Sun dataset, the dataset schema/fields may change each year.
 
 /2018
 
