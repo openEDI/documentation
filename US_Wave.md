@@ -1,51 +1,44 @@
-# Wind Resource Data: Wind Integration National Dataset (WIND) Toolkit
+# High Resolution Ocean Surface Wave Hindcast
+
+## Description
+
+The development of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office to improve our understanding of the U.S. wave energy resource and to provide critical information for wave energy project development and wave energy converter (WEC) conceptual design. This will be the highest resolution publicly available long-term wave hindcast dataset that – when complete – covers the entire U.S. EEZ. As such, it could be of value to any company with marine operations inside the U.S. EEZ. Specifically, the data can be used to investigate the historical record of wave statistics at any U.S. site. This level of detail could be of interest to the Oil and Gas industry for offshore platform engineering, to the offshore wind industry for turbine and array design, to offshore aquaculture production and blue economy development, to coastal communities for extreme hazards mitigation,  to global shipping companies and fisherman for a better understanding of weather windows and seasonal wave climate patterns at a spatial resolution that does not exist elsewhere. The NREL Offshore Wind group has expressed significant interest in this dataset for device structural modeling, array design, and economic modeling.
 
 ## Model
 
-Wind resource data for North America was produced using the [Weather Research and Forecasting Model (WRF)](https://www.mmm.ucar.edu/weather-research-and-forecasting-model).
-The WRF model was initialized with the European Centre for Medium Range Weather
-Forecasts Interim Reanalysis (ERA-Interm) data set with an initial grid spacing
-of 54 km.  Three internal nested domains were used to refine the spatial
-resolution to 18, 6, and finally 2 km.  The WRF model was run for years 2007
-to 2014. While outputs were extracted from WRF at 5 minute time-steps, due to
-storage limitations instantaneous hourly time-step are provided for all
-variables while full 5 min resolution data is provided for wind speed and wind
-direction only.
+This is the highest resolution publicly available wave hindcast dataset. The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN enabled long-term (decades) high-resolution hindcasts in a large regional domain. The model was extensively validated not only for the most common wave parameters, but also six IEC resource parameters and 2D spectra with high quality spectral data derived from publicly available buoys. This creation of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). Additional details on detailed definitions of the variables found in the dataset, the SWAN and WaveWatch III model configuration and model validation are available in a peer-review publication [Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105) and a PNNL technical report: [High-Resolution Regional Wave Hindcast for the U.S. West Coast](https://www.osti.gov/biblio/1573061/). This study was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
-The following variables were extracted from the WRF model data:
-- Wind Speed at 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Wind Direction at 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Temperature at 2, 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Pressure at 0, 100, 200 m
-- Surface Precipitation Rate
-- Surface Relative Humidity
-- Inverse Monin Obukhov Length
+The following variables were extracted from the SWAM Model data:
+  - Dir: Direction Normal to the Wave Crests
+  - Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
+  - Period: Resolved Spectral Moment (m_0/m_1)
+  - RTpeak: The period associated with the maximum value of the wave energy spectrum
+  - Tm02: Total wave energy flux from all directions
+  - Tm_10: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+  - d: Fraction of total wave energy travelling in the direction of maximum wave power
+  - djdmax: The direction from which the most wave energy is travelling
+  - owp: Total wave energy flux from all directions
+  - sw: Spectral width characterizes the relative spreading of energy in the wave spectrum. 
 
 ## Domains
 
-The wind resource was produce using three distinct WRF domains shown below. The
-CONUS domain for 2007-2013 was run by 3Tier while 2014 as well as all years of
-the Canada and Mexico domains were run under NARIS. The data is provided in
-three sets of files:
+The dataset currently covers the U.S. Exclusive Economic Zone (‘EEZ’, up to 200 nautical miles from shore) offshore of the West Coast, and includes shallow nearshore regions not covered by previous model hindcasts. Future additions to the dataset will extend the coverage to the entire U.S. EEZ, including Island territories. The dataset has a 3-hour timestep spanning 32 years from 1979 through 2010. It includes the most common wave statistics (wave height, wave direction, wave period), alongside several other wave statistics developed for the wave energy sector. The dataset was generated from the unstructured-grid  SWAN model output that was driven by a WaveWatch III model with global-regional nested grids. The SWAN model simulations were performed with a spatial resolution as fine as 200 meters in shallow waters:
 
-- CONUS: Extracted exclusively from the CONUS domain
-- Canada: Combined data from the Canada and CONUS domains
-- Mexico: Combined data from the Mexico and CONUS domains
+- West Coast United States: Dataset Available
+- East Coast United States: Available soon
+- Alaskan Coast: Available soon
 
 ## References
 
-For more information about the WIND Toolkit please see the [website.](https://www.nrel.gov/grid/wind-toolkit.html)
-Users of the WIND Toolkit should use the following citations:
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. Overview and Meteorological Validation of the Wind Integration National Dataset Toolkit (Technical Report, NREL/TP-5000-61740). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/61740.pdf)
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. "The Wind Integration National Dataset (WIND) Toolkit." Applied Energy 151: 355366.](https://www.sciencedirect.com/science/article/pii/S0306261915004237?via%3Dihub)
-- [Lieberman-Cribbin, W., C. Draxl, and A. Clifton. 2014. Guide to Using the WIND Toolkit Validation Code (Technical Report, NREL/TP-5000-62595). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/62595.pdf)
-- [King, J., A. Clifton, and B.M. Hodge. 2014. Validation of Power Output for the WIND Toolkit (Technical Report, NREL/TP-5D00-61714). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy14osti/61714.pdf)
+Users of the High Resolution Ocean Surfae Wave Hindcast should use the following citations:
+- [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
+- [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1573061/)
 
 ## Directory structure
 
-Wind resource data is made available as a series of hourly .h5 files
+High Resolution Ocean Surface Wave Hindcast data is made available as a series of hourly .h5 files
 corresponding to each domain and year. Below is an example of the directory
-structure for the CONUS domains:
+structure for the West Coast US EEZ domain:
 - s3://nrel-pds-wtk/hdf5-source-files-hourly/conus -> root directory for the conus domain
     - /v1.0.0 -> version 1 of the data corresponding to years 2007-2013, run by 3Tier
         - /wtk_conus_${year}.h5 -> Hourly data for all variables for the given year
@@ -62,10 +55,8 @@ For examples on setting up and using HSDS please see our [examples repository](h
 The data is provided in high density data file (.h5) separated by year. The
 variables mentioned above are provided in 2 dimensional time-series arrays with
 dimensions (time x location). The temporal axis is defined by the `time_index`
-dataset, while the positional axis is defined by the `meta` dataset. For
-storage efficiency each variable has been scaled and stored as an integer. The
-scale-factor is provided in the `scale-factor` attribute.  The units for the
-variable data is also provided as an attribute (`units`).
+dataset, while the positional axis is defined by the `coordinate` dataset. The units for the
+variable data is also provided as an attribute (`units`). The SWAN and IEC valiable names are also provide under the attributes ('SWAWN_name') and ('IEC_name') respectively.
 
 ## Python Examples
 
