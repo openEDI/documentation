@@ -8,7 +8,7 @@ The development of this dataset was funded by the U.S. Department of Energy, Off
 
 This is the highest resolution publicly available wave hindcast dataset. The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN enabled long-term (decades) high-resolution hindcasts in a large regional domain. The model was extensively validated not only for the most common wave parameters, but also six IEC resource parameters and 2D spectra with high quality spectral data derived from publicly available buoys. This creation of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). Additional details on detailed definitions of the variables found in the dataset, the SWAN and WaveWatch III model configuration and model validation are available in a peer-review publication [Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105) and a PNNL technical report: [High-Resolution Regional Wave Hindcast for the U.S. West Coast](https://www.osti.gov/biblio/1573061/). This study was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
-Thefollowing variables were extracted from the SWAM Model data:
+The following variables were extracted from the SWAM Model data:
 - Dir: Direction Normal to the Wave Crests
 - Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
 - Period: Resolved Spectral Moment (m_0/m_1)
@@ -60,22 +60,22 @@ The easiest way to access and extract data from the Resource eXtraction tool
 
 
 ```python
-from rex import WindX
+from rex import ResourceX
 
-wtk_file = '/nrel/wtk/conus/wtk_conus_2010.h5'
-with WindX(wtk_file, hsds=True) as f:
+wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+with ResourceX(wave_file, hsds=True) as f:
     meta = f.meta
     time_index = f.time_index
     wspd_100m = f['windspeed_100m']
 ```
 
-Note: `WindX` will automatically interpolate to the desired hub-height:
+Note: `ResourceX` will automatically interpolate to the desired hub-height:
 
 ```python
-from rex import WindX
+from rex import ResourceX
 
-wtk_file = '/nrel/wtk/conus/wtk_conus_2010.h5'
-with WindX(wtk_file, hsds=True) as f:
+wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+with ResourceX(wave_file, hsds=True) as f:
     print(f.datasets)  # not 90m is not a valid dataset
     wspd_90m = f['windspeed_90m']
 ```
@@ -84,38 +84,27 @@ with WindX(wtk_file, hsds=True) as f:
 location:
 
 ```python
-from rex import WindX
+from rex import ResourceX
 
-wtk_file = '/nrel/wtk/conus/wtk_conus_2010.h5'
+wave_file = '/nrel/US_Wave/US_wave_2010.h5'
 nwtc = (39.913561, -105.222422)
-with WindX(wtk_file, hsds=True) as f:
+with ResourceX(wave_file, hsds=True) as f:
     nwtc_wspd = f.get_lat_lon_df('windspeed_100m', nwtc)
 ```
 
 or to extract all sites in a given region:
 
 ```python
-from rex import WindX
+from rex import ResourceX
 
-wtk_file = '/nrel/wtk/conus/wtk_conus_2010.h5'
-state='Colorado'
-with WindX(wtk_file, hsds=True) as f:
-    co_wspd = f.get_region_df('windspeed_100m', state, region_col='state')
+wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+jurisdication='California'
+with ResourceX(wave_file, hsds=True) as f:
+    ca_wspd = f.get_region_df('windspeed_100m', jurisdiction,
+                              region_col='jurisdiction')
 ```
 
-Lastly, `rex` can be used to extract all variables needed to run SAM at a given
-location:
-
-```python
-from rex import WindX
-
-wtk_file = '/nrel/wtk/conus/wtk_conus_2010.h5'
-nwtc = (39.913561, -105.222422)
-with WindX(wtk_file, hsds=True) as f:
-    nwtc_sam_vars = f.get_SAM_df(nwtc)
-```
-
-If you would rather access the WIND Toolkit data directly using h5pyd:
+If you would rather access the US Wave data directly using h5pyd:
 
 ```python
 # Extract the average 100m wind speed
@@ -123,7 +112,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/wtk/conus/wtk_conus_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
     # Extract meta data and convert from records array to DataFrame
     meta = pd.DataFrame(f['meta'][...])
     # 100m windspeed dataset
@@ -143,7 +132,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/wtk/conus/wtk_conus_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
     # Extract time_index and convert to datetime
     # NOTE: time_index is saved as byte-strings and must be decoded
     time_index = pd.to_datetime(f['time_index'][...].astype(str))
