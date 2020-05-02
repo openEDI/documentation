@@ -8,17 +8,17 @@ The development of this dataset was funded by the U.S. Department of Energy, Off
 
 This is the highest resolution publicly available wave hindcast dataset. The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN enabled long-term (decades) high-resolution hindcasts in a large regional domain. The model was extensively validated not only for the most common wave parameters, but also six IEC resource parameters and 2D spectra with high quality spectral data derived from publicly available buoys. This creation of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). Additional details on detailed definitions of the variables found in the dataset, the SWAN and WaveWatch III model configuration and model validation are available in a peer-review publication [Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105) and a PNNL technical report: [High-Resolution Regional Wave Hindcast for the U.S. West Coast](https://www.osti.gov/biblio/1573061/). This study was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
-The following variables were extracted from the SWAM Model data:
-  - Dir: Direction Normal to the Wave Crests
-  - Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
-  - Period: Resolved Spectral Moment (m_0/m_1)
-  - RTpeak: The period associated with the maximum value of the wave energy spectrum
-  - Tm02: Total wave energy flux from all directions
-  - Tm_10: Spectral width characterizes the relative spreading of energy in the wave spectrum.
-  - d: Fraction of total wave energy travelling in the direction of maximum wave power
-  - djdmax: The direction from which the most wave energy is travelling
-  - owp: Total wave energy flux from all directions
-  - sw: Spectral width characterizes the relative spreading of energy in the wave spectrum. 
+Thefollowing variables were extracted from the SWAM Model data:
+- Dir: Direction Normal to the Wave Crests
+- Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
+- Period: Resolved Spectral Moment (m_0/m_1)
+- RTpeak: The period associated with the maximum value of the wave energy spectrum
+- Tm02: Total wave energy flux from all directions
+- Tm_10: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+- d: Fraction of total wave energy travelling in the direction of maximum wave power
+- djdmax: The direction from which the most wave energy is travelling
+- owp: Total wave energy flux from all directions
+- sw: Spectral width characterizes the relative spreading of energy in the wave spectrum.
 
 ## Domains
 
@@ -36,18 +36,11 @@ Users of the High Resolution Ocean Surfae Wave Hindcast should use the following
 
 ## Directory structure
 
-High Resolution Ocean Surface Wave Hindcast data is made available as a series of hourly .h5 files
-corresponding to each domain and year. Below is an example of the directory
-structure for the West Coast US EEZ domain:
-- s3://nrel-pds-wtk/hdf5-source-files-hourly/conus -> root directory for the conus domain
-    - /v1.0.0 -> version 1 of the data corresponding to years 2007-2013, run by 3Tier
-        - /wtk_conus_${year}.h5 -> Hourly data for all variables for the given year
-        - /${year}/wind_${hub_height}.h5 -> Five minute wind resource data for the given year and hub height
-    - /v1.1.0 -> version 1.1 of the data corresponding to 2014, run under NARIS with an updated version of WRF and new Boundary Layer Physics (PBL scheme)
+High Resolution Ocean Surface Wave Hindcast data is made available as a series of hourly .h5 located on AWS S3:
+- s3://pds-US-wave/v1.0.0
 
-The WIND Toolkit data is also available via HSDS at /nrel/wtk/${domain} where
-domain is conus, canada, or mexico
 
+The US wave data is also available via HSDS at /nrel/wave
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 
 ## Data Format
