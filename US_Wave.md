@@ -55,8 +55,6 @@ available in the .h5 files:
 - `omni`-directional_wave_power: Total wave energy flux from all directions
 - `spectral_width`: Spectral width characterizes the relative spreading of energy in the wave spectrum.
 
-## Domains
-
 The dataset currently covers the U.S. Exclusive Economic Zone (‘EEZ’, up to
 200 nautical miles from shore) offshore of the West Coast, and includes shallow
 nearshore regions not covered by previous model hindcasts. Future additions to
