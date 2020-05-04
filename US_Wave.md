@@ -44,16 +44,16 @@ DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
 The following variables were extracted from the SWAM Model data and are
 available in the .h5 files:
-- `mean_wave_direction`: Direction Normal to the Wave Crests
-- `significant_wave_height`: Calculated as the zeroth spectral moment (i.e., H_m0)
-- `mean_absolute_period`: Resolved Spectral Moment (m_0/m_1)
-- `peak_period`: The period associated with the maximum value of the wave energy spectrum
-- `mean_zero`-crossing_period: Total wave energy flux from all directions
-- `energy_period`: Spectral width characterizes the relative spreading of energy in the wave spectrum.
-- `directionality_coefficient`: Fraction of total wave energy travelling in the direction of maximum wave power
-- `maximum_energy_direction`: The direction from which the most wave energy is travelling
-- `omni`-directional_wave_power: Total wave energy flux from all directions
-- `spectral_width`: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+- Mean Wave Direction: Direction Normal to the Wave Crests
+- Significant Wave Height: Calculated as the zeroth spectral moment (i.e., H_m0)
+- Mean Absolute Period: Resolved Spectral Moment (m_0/m_1)
+- Peak Period: The period associated with the maximum value of the wave energy spectrum
+- Mean Zero Crossing Period: Total wave energy flux from all directions
+- Energy Period: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+- Directionality Coefficient: Fraction of total wave energy travelling in the direction of maximum wave power
+- Maximum Energy Direction: The direction from which the most wave energy is travelling
+- Omni-Directional Wave Power: Total wave energy flux from all directions
+- Spectral Width: Spectral width characterizes the relative spreading of energy in the wave spectrum.
 
 The dataset currently covers the U.S. Exclusive Economic Zone (‘EEZ’, up to
 200 nautical miles from shore) offshore of the West Coast, and includes shallow
