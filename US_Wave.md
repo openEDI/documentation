@@ -84,7 +84,7 @@ following citations:
 
 High Resolution Ocean Surface Wave Hindcast data is made available as a series
 of hourly .h5 located on AWS S3:
-- s3://pds-US-wave/v1.0.0
+- `s3://WPTO-pds-US-wave/v1.0.0`
 
 
 The US wave data is also available via HSDS at /nrel/US_Wave
