@@ -9,16 +9,16 @@ The development of this dataset was funded by the U.S. Department of Energy, Off
 This is the highest resolution publicly available wave hindcast dataset. The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN enabled long-term (decades) high-resolution hindcasts in a large regional domain. The model was extensively validated not only for the most common wave parameters, but also six IEC resource parameters and 2D spectra with high quality spectral data derived from publicly available buoys. This creation of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). Additional details on detailed definitions of the variables found in the dataset, the SWAN and WaveWatch III model configuration and model validation are available in a peer-review publication [Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105) and a PNNL technical report: [High-Resolution Regional Wave Hindcast for the U.S. West Coast](https://www.osti.gov/biblio/1573061/). This study was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
 The following variables were extracted from the SWAM Model data:
-- Dir: Direction Normal to the Wave Crests
-- Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
-- Period: Resolved Spectral Moment (m_0/m_1)
-- RTpeak: The period associated with the maximum value of the wave energy spectrum
-- Tm02: Total wave energy flux from all directions
-- Tm_10: Spectral width characterizes the relative spreading of energy in the wave spectrum.
-- d: Fraction of total wave energy travelling in the direction of maximum wave power
-- djdmax: The direction from which the most wave energy is travelling
-- owp: Total wave energy flux from all directions
-- sw: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+- Mean Wave Direction: Direction Normal to the Wave Crests
+- Significant Wave Height: Calculated as the zeroth spectral moment (i.e., H_m0)
+- Mean Absolute Period: Resolved Spectral Moment (m_0/m_1)
+- Peak Period: The period associated with the maximum value of the wave energy spectrum
+- Mean Zero Crossing Period: Total wave energy flux from all directions
+- Energy Period: Spectral width characterizes the relative spreading of energy in the wave spectrum.
+- Directionality Coefficient: Fraction of total wave energy travelling in the direction of maximum wave power
+- Maximum Energy Direction: The direction from which the most wave energy is travelling
+- Omni-Directional Wave Power: Total wave energy flux from all directions
+- Spectral Width: Spectral width characterizes the relative spreading of energy in the wave spectrum.
 
 ## Domains
 
