@@ -32,15 +32,6 @@ three sets of files:
 - Canada: Combined data from the Canada and CONUS domains
 - Mexico: Combined data from the Mexico and CONUS domains
 
-## References
-
-For more information about the WIND Toolkit please see the [website.](https://www.nrel.gov/grid/wind-toolkit.html)
-Users of the WIND Toolkit should use the following citations:
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. Overview and Meteorological Validation of the Wind Integration National Dataset Toolkit (Technical Report, NREL/TP-5000-61740). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/61740.pdf)
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. "The Wind Integration National Dataset (WIND) Toolkit." Applied Energy 151: 355366.](https://www.sciencedirect.com/science/article/pii/S0306261915004237?via%3Dihub)
-- [Lieberman-Cribbin, W., C. Draxl, and A. Clifton. 2014. Guide to Using the WIND Toolkit Validation Code (Technical Report, NREL/TP-5000-62595). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/62595.pdf)
-- [King, J., A. Clifton, and B.M. Hodge. 2014. Validation of Power Output for the WIND Toolkit (Technical Report, NREL/TP-5D00-61714). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy14osti/61714.pdf)
-
 ## Directory structure
 
 Wind resource data is made available as a series of hourly .h5 files
@@ -175,3 +166,12 @@ with h5pyd.File('/nrel/wtk/conus/wtk_conus_2010.h5', mode='r') as f:
     	# Extract site 100 and add to DataFrame
     	time_series[var] = ds[:, 100] / scale_factor
 ```
+
+## References
+
+For more information about the WIND Toolkit please see the [website.](https://www.nrel.gov/grid/wind-toolkit.html)
+Users of the WIND Toolkit should use the following citations:
+- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. Overview and Meteorological Validation of the Wind Integration National Dataset Toolkit (Technical Report, NREL/TP-5000-61740). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/61740.pdf)
+- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. "The Wind Integration National Dataset (WIND) Toolkit." Applied Energy 151: 355366.](https://www.sciencedirect.com/science/article/pii/S0306261915004237?via%3Dihub)
+- [Lieberman-Cribbin, W., C. Draxl, and A. Clifton. 2014. Guide to Using the WIND Toolkit Validation Code (Technical Report, NREL/TP-5000-62595). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/62595.pdf)
+- [King, J., A. Clifton, and B.M. Hodge. 2014. Validation of Power Output for the WIND Toolkit (Technical Report, NREL/TP-5D00-61714). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy14osti/61714.pdf)

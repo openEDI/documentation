@@ -71,13 +71,6 @@ resolution as fine as 200 meters in shallow waters:
 - East Coast United States: Available soon
 - Alaskan Coast: Available soon
 
-## References
-
-Users of the High Resolution Ocean Surfae Wave Hindcast should use the
-following citations:
-- [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
-- [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1573061/)
-
 ## Directory structure
 
 High Resolution Ocean Surface Wave Hindcast data is made available as a series
@@ -184,3 +177,9 @@ with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
     	# Extract site 100 and add to DataFrame
     	time_series[var] = ds[:, 100] / scale_factor
 ```
+## References
+
+Users of the High Resolution Ocean Surfae Wave Hindcast should use the
+following citations:
+- [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
+- [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1573061/)
