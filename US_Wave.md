@@ -3,8 +3,7 @@
 ## Description
 
 The development of this dataset was funded by the U.S. Department of Energy,
-Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract
-DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). It was created
+Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office
 to improve our understanding of the U.S. wave energy resource and to provide
 critical information for wave energy project development and wave energy
 converter design.
