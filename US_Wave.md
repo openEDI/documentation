@@ -10,8 +10,16 @@ converter design.
 
 This is the highest resolution publicly
 available long-term wave hindcast dataset that – when complete – will cover the
-entire U.S. Exclusive Economic Zone (EEZ). As such, it could be of value to any company with marine
-operations inside the U.S. EEZ.
+entire U.S. Exclusive Economic Zone (EEZ). As such, the dataset could also be of value to any company with marine
+operations inside the U.S. EEZ. Specifically, the data can be used to
+investigate the historical record of wave statistics at any U.S. site. This
+level of detail could be of interest to the Oil and Gas industry for offshore
+platform engineering, to the offshore wind industry for turbine and array
+design, to offshore aquaculture production and blue economy development, to
+coastal communities for extreme hazards mitigation,  to global shipping
+companies and fisherman for a better understanding of weather windows and
+seasonal wave climate patterns at a spatial resolution that does not exist
+elsewhere. 
 
 A technical summary of the dataset is as follows:
 
