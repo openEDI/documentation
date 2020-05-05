@@ -3,35 +3,58 @@
 ## Description
 
 The development of this dataset was funded by the U.S. Department of Energy,
-Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office
+Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract
+DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). It was created
 to improve our understanding of the U.S. wave energy resource and to provide
 critical information for wave energy project development and wave energy
-converter (WEC) conceptual design. This will be the highest resolution publicly
-available long-term wave hindcast dataset that – when complete – covers the
-entire U.S. EEZ. As such, it could be of value to any company with marine
-operations inside the U.S. EEZ. Specifically, the data can be used to
-investigate the historical record of wave statistics at any U.S. site. This
-level of detail could be of interest to the Oil and Gas industry for offshore
-platform engineering, to the offshore wind industry for turbine and array
-design, to offshore aquaculture production and blue economy development, to
-coastal communities for extreme hazards mitigation,  to global shipping
-companies and fisherman for a better understanding of weather windows and
-seasonal wave climate patterns at a spatial resolution that does not exist
-elsewhere. The NREL Offshore Wind group has expressed significant interest in
-this dataset for device structural modeling, array design, and economic
-modeling.
+converter design.
+
+This is the highest resolution publicly
+available long-term wave hindcast dataset that – when complete – will cover the
+entire U.S. Exclusive Economic Zone (EEZ). As such, it could be of value to any company with marine
+operations inside the U.S. EEZ.
+
+A technical summary of the dataset is as follows:
+
+- 32 Year Wave Hindcast (1979-2010), 3-hour temporal resolution
+- Unstructured grid spatial resolution ranges from 200 meters in shallow water to ~10 km in deep water (700,000 grid points in West Coast dataset)
+- Current spatial coverage: EEZ offshore of U.S. West Coast (other regions coming soon, see below)
+
+The following variables are included in the dataset:
+
+- Mean Wave Direction: Direction normal to the wave crests
+- Significant Wave Height: Calculated as the zeroth spectral moment (i.e., H_m0)
+- Mean Absolute Period: Calculated as a ratio of spectral moments (m_0/m_1)
+- Peak Period: The period associated with the maximum value of the wave energy spectrum
+- Mean Zero-Crossing Period: Calculated as a ratio of spectral moments (sqrt(m_0/m_2))
+- Energy Period: Calculated as a ratio of spectral moments (m_-1/m_0)
+- Directionality Coefficient: Fraction of total wave energy travelling in the direction of maximum wave power
+- Maximum Energy Direction: The direction from which the most wave energy is travelling
+- Omni-Directional Wave Power: Total wave energy flux from all directions
+- Spectral Width: Spectral width characterizes the relative spreading of energy in the wave spectrum
+
+Currently the dataset only covers the EEZ offshore of the U.S. West Coast, but it will be updated to include all other U.S. regions by 2022.
+The timeline for extending the dataset is as follows:
+
+- West Coast United States: Dataset Available
+- East Coast United States: Available soon (by October 2020)
+- Alaskan Coast: Available soon (by October 2020)
+- Hawaiian Islands: Coming in 2021
+- Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands coming in 2021
+- U.S. Pacific Island Territories coming by 2022
 
 ## Model
 
-This is the highest resolution publicly available wave hindcast dataset. The
-multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN
+The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN
 enabled long-term (decades) high-resolution hindcasts in a large regional
-domain. The model was extensively validated not only for the most common wave
+domain. In particular, the dataset was generated from the unstructured-grid
+SWAN model output that was driven by a WaveWatch III model with global-regional
+nested grids. The unstructured-grid (UnSWAN) model simulations were performed with a spatial resolution as fine as 200 meters in shallow waters. The dataset has a 3-hour timestep spanning 32 years from 1979
+through 2010. The project team intends to extend this to 2020 (i.e., 1979-2020), pending DOE support to do so.
+
+The model was extensively validated not only for the most common wave
 parameters, but also six IEC resource parameters and 2D spectra with high
-quality spectral data derived from publicly available buoys. This creation of
-this dataset was funded by the U.S. Department of Energy, Office of Energy
-Efficiency & Renewable Energy, Water Power Technologies Office under Contract
-DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL). Additional
+quality spectral data derived from publicly available buoys. Additional
 details on detailed definitions of the variables found in the dataset, the
 SWAN and WaveWatch III model configuration and model validation are available
 in a peer-review publication
@@ -41,35 +64,6 @@ and a PNNL technical report:
 This study was funded by the U.S. Department of Energy, Office of Energy
 Efficiency & Renewable Energy, Water Power Technologies Office under Contract
 DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
-
-The following variables were extracted from the SWAM Model data and are
-available in the .h5 files:
-- Mean Wave Direction: Direction Normal to the Wave Crests
-- Significant Wave Height: Calculated as the zeroth spectral moment (i.e., H_m0)
-- Mean Absolute Period: Resolved Spectral Moment (m_0/m_1)
-- Peak Period: The period associated with the maximum value of the wave energy spectrum
-- Mean Zero Crossing Period: Total wave energy flux from all directions
-- Energy Period: Spectral width characterizes the relative spreading of energy in the wave spectrum.
-- Directionality Coefficient: Fraction of total wave energy travelling in the direction of maximum wave power
-- Maximum Energy Direction: The direction from which the most wave energy is travelling
-- Omni-Directional Wave Power: Total wave energy flux from all directions
-- Spectral Width: Spectral width characterizes the relative spreading of energy in the wave spectrum.
-
-The dataset currently covers the U.S. Exclusive Economic Zone (‘EEZ’, up to
-200 nautical miles from shore) offshore of the West Coast, and includes shallow
-nearshore regions not covered by previous model hindcasts. Future additions to
-the dataset will extend the coverage to the entire U.S. EEZ, including Island
-territories. The dataset has a 3-hour timestep spanning 32 years from 1979
-through 2010. It includes the most common wave statistics (wave height, wave
-direction, wave period), alongside several other wave statistics developed for
-the wave energy sector. The dataset was generated from the unstructured-grid
-SWAN model output that was driven by a WaveWatch III model with global-regional
-nested grids. The SWAN model simulations were performed with a spatial
-resolution as fine as 200 meters in shallow waters:
-
-- West Coast United States: Dataset Available
-- East Coast United States: Available soon
-- Alaskan Coast: Available soon
 
 ## Directory structure
 
@@ -151,7 +145,7 @@ with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
     # Extract, average, and unscale wave height
     mean_swh = swh[...].mean(axis=0) / scale_factor
 
-# Add mean windspeed to meta data
+# Add mean wave height to meta data
 meta['Average Wave Height'] = mean_swh
 ```
 
