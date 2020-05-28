@@ -44,11 +44,11 @@ Currently the dataset only covers the EEZ offshore of the U.S. West Coast, but i
 The timeline for extending the dataset is as follows:
 
 - West Coast United States: Dataset Available
-- East Coast United States: Available soon (by October 2020)
-- Alaskan Coast: Available soon (by October 2020)
-- Hawaiian Islands: Coming in 2021
-- Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands coming in 2021
-- U.S. Pacific Island Territories coming by 2022
+- East Coast United States: TBD
+- Alaskan Coast: October 2020
+- Hawaiian Islands: October 2020
+- Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands: TBD
+- U.S. Pacific Island Territories: Dec 2021
 
 ## Model
 
@@ -180,7 +180,8 @@ with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
 ```
 ## References
 
-Users of the High Resolution Ocean Surfae Wave Hindcast should use the
-following citations:
+The creators of this dataset ask that users of this data:
+1) Contact us (see below)
+2) Cite the following papers in publications:
 - [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
 - [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1573061/)
