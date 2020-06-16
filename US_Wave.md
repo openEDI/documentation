@@ -10,16 +10,9 @@ converter design.
 
 This is the highest resolution publicly available long-term wave hindcast
 dataset that – when complete – will cover the entire U.S. Exclusive Economic
-Zone (EEZ). As such, the dataset could also be of value to any company with
-marine operations inside the U.S. EEZ. Specifically, the data can be used to
-investigate the historical record of wave statistics at any U.S. site. This
-level of detail could be of interest to the Oil and Gas industry for offshore
-platform engineering, to the offshore wind industry for turbine and array
-design, to offshore aquaculture production and blue economy development, to
-coastal communities for extreme hazards mitigation, to global shipping
-companies and fisherman for a better understanding of weather windows and
-seasonal wave climate patterns at a spatial resolution that does not exist
-elsewhere.
+Zone (EEZ). The data can be used to investigate the historical record of wave
+statistics at any U.S. site. As such, the dataset could also be of value to any
+entity with marine operations inside the U.S. EEZ.
 
 A technical summary of the dataset is as follows:
 
@@ -57,22 +50,18 @@ The multi-scale, unstructured-grid modeling approach using WaveWatch III and
 SWAN enabled long-term (decades) high-resolution hindcasts in a large regional
 domain. In particular, the dataset was generated from the unstructured-grid
 SWAN model output that was driven by a WaveWatch III model with global-regional
-nested grids. The unstructured-grid (UnSWAN) model simulations were performed
-with a spatial resolution as fine as 200 meters in shallow waters. The dataset
-has a 3-hour timestep spanning 32 years from 1979 through 2010. The project
-team intends to extend this to 2020 (i.e., 1979-2020), pending DOE support to
-do so.
+nested grids. The unstructured-grid SWAN model simulations were performed with
+a spatial resolution as fine as 200 meters in shallow waters. The dataset has a
+3-hour timestep spanning 32 years from 1979 through 2010. The project team
+intends to extend this to 2020 (i.e., 1979-2020), pending DOE support to do so.
 
-The model was extensively validated not only for the most common wave
+The models were extensively validated not only for the most common wave
 parameters, but also six IEC resource parameters and 2D spectra with high
-quality spectral data derived from publicly available buoys. Additional
-details on detailed definitions of the variables found in the dataset, the
-SWAN and WaveWatch III model configuration and model validation are available
-in a peer-review publication
-[Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105)
-and a PNNL technical report:
-[High-Resolution Regional Wave Hindcast for the U.S.West Coast](https://www.osti.gov/biblio/1573061/).
-This study was funded by the U.S. Department of Energy, Office of Energy
+quality spectral data derived from publicly available buoys. Additional details
+on definitions of the variables found in the dataset, the SWAN and WaveWatch
+III model configurations and model validation are available in technical report
+and peer-reviewed publications (Wu et al. 2020, Yang et al. 2020, Yang et al.
+2018). This study was funded by the U.S. Department of Energy, Office of Energy
 Efficiency & Renewable Energy, Water Power Technologies Office under Contract
 DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
@@ -184,11 +173,11 @@ with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
 ```
 ## References
 
-The creators of this dataset ask that users of this data:
-1) Contact us (see below)
-2) Cite the following papers in publications:
-- [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
-- [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1573061/)
+Please cite the most relevant publication below when referencing this dataset:
+
+1) [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1599105)
+2) [Yang, Z., G. García-Medina, W. Wu, and T. Wang, 2020. Characteristics and variability of the Nearshore Wave Resource on the U.S. West Coast. Energy.](https://doi.org/10.1016/j.energy.2020.117818)
+3) [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://doi.org/10.2172/1573061)
 
 ## Disclaimer and Attribution
 
@@ -198,34 +187,26 @@ Department of Energy (“DOE”) by the Alliance for Sustainable Energy, LLC
 operated by Battelle Memorial Institute ("Battelle") for DOE. As such the
 following rules apply:
 
-Access to or use of this data ("Data") shall impose the following obligations
-on the user, and use of the Data constitutes user's agreement to these terms.
-The user is granted the right, without any fee or cost, to use or copy the
-Data, provided that this entire notice appears in all copies of the Data.
-Further, the user agrees to credit DOE/PNNL/NREL/BATELLE/ALLIANCE in any
-publication that results from the use of the Data. The names
-DOE/PNNL/NREL/BATELLE/ALLIANCE, however, may not be used in any advertising or
-publicity to endorse or promote any products or commercial entities unless
-specific written permission is obtained from DOE/PNNL/NREL/BATELLE/ALLIANCE.
-The user also understands that DOE/PNNL/NREL/BATELLE/ALLIANCE are not obligated
-to provide the user with any support, consulting, training or assistance of any
-kind with regard to the use of the Data or to provide the user with any
-updates, revisions or new versions thereof. DOE, PNNL, NREL, BATELLE, and
-ALLIANCE do not guarantee or endorse any results generated by use of the Data,
-and user is entirely responsible for the results and any reliance on the
-results or the Data in general.
+This data arose from worked performed under funding provided by the United
+States Government. Access to or use of this data ("Data") denotes consent with
+the fact that this data is provided "AS IS," “WHEREIS” AND SPECIFICALLY FREE
+FROM ANY EXPRESS OR IMPLIED WARRANTY OF ANY KIND, INCLUDING BUT NOT LIMITED TO
+ANY IMPLIED WARRANTIES SUCH AS MERCHANTABILITY AND/OR FITNESS FOR ANY
+PARTICULAR PURPOSE. Furthermore, NEITHER THE UNITED STATES GOVERNMENT NOR ANY
+OF ITS ASSOCITED ENTITES OR CONTRACTORS INCLUDING BUT NOT LIMITED TO THE
+DOE/PNNL/NREL/BATTELLE/ALLIANCE ASSUME ANY LEGAL LIABILITY OR RESPONSIBILITY
+FOR THE ACCURACY, COMPLETENESS, OR USEFULNESS OF THE DATA, OR REPRESENT THAT
+ITS USE WOULD NOT INFRINGE PRIVATELY OWNED RIGHTS. NO ENDORSEMENT OF THE DATA
+OR ANY REPRESENTATIONS MADE IN CONNECTION WITH THE DATA IS PROVIDED. IN NO
+EVENT SHALL ANY PARTY BE LIABLE FOR ANY DAMAGES, INCLUDING BUT NOT LIMITED TO
+SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES ARISING FROM THE PROVISION OF THIS
+DATA; TO THE EXTENT PERMITTED BY LAW USER AGREES TO INDEMNIFY
+DOE/PNNL/NREL/BATTELLE/ALLIANCE AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS,
+AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND RELATED TO USER'S USE OF THE
+DATA, INCLUDING ANY REASONABLE ATTORNEYS FEES INCURRED.
 
-USER AGREES TO INDEMNIFY DOE/PNNL/NREL/BATELLE/ALLIANCE AND ITS SUBSIDIARIES,
-AFFILIATES, OFFICERS, AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND,
-INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO USER'S USE OF THE DATA. THE
-DATA ARE PROVIDED BY DOE/PNNL/NREL/BATELLE/ALLIANCE "AS IS," AND ANY EXPRESS OR
-IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-DOE/PNNL/NREL/BATELLE/ALLIANCE ASSUME NO LEGAL LIABILITY OR RESPONSIBILITY FOR
-THE ACCURACY, COMPLETENESS, OR USEFULNESS OF THE DATA, OR REPRESENT THAT ITS
-USE WOULD NOT INFRINGE PRIVATELY OWNED RIGHTS. IN NO EVENT SHALL
-DOE/PNNL/NREL/BATELLE/ALLIANCE BE LIABLE FOR ANY SPECIAL, INDIRECT OR
-CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER, INCLUDING BUT NOT LIMITED TO
-CLAIMS ASSOCIATED WITH THE LOSS OF DATA OR PROFITS, THAT MAY RESULT FROM AN
-ACTION IN CONTRACT, NEGLIGENCE OR OTHER TORTIOUS CLAIM THAT ARISES OUT OF OR
-IN CONNECTION WITH THE ACCESS, USE OR PERFORMANCE OF THE DATA.
+The user is granted the right, without any fee or cost, to use or copy the
+Data, provided that this entire notice appears in all copies of the Data. In
+the event that user engages in any scientific or technical publication
+utilizing this data user agrees to credit DOE/PNNL/NREL/BATTELLE/ALLIANCE in
+any such publication consistent with respective professional practice.
