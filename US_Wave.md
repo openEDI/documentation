@@ -72,7 +72,7 @@ of hourly .h5 located on AWS S3:
 - `s3://wpto-pds-us-wave/v1.0.0`
 
 
-The US wave data is also available via HSDS at /nrel/US_Wave
+The US wave data is also available via HSDS at `/nrel/us-wave`
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 
 ## Data Format
@@ -96,7 +96,7 @@ The easiest way to access and extract data from the Resource eXtraction tool
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+wave_file = '/nrel/us-wave/US_wave_2010.h5'
 with ResourceX(wave_file, hsds=True) as f:
     meta = f.meta
     time_index = f.time_index
@@ -109,7 +109,7 @@ location:
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+wave_file = '/nrel/us-wave/US_wave_2010.h5'
 lat_lon = (34.399408, -119.841181)
 with ResourceX(wave_file, hsds=True) as f:
     lat_lon_swh = f.get_lat_lon_df('significant_wave_height', nwtc)
@@ -120,7 +120,7 @@ or to extract all sites in a given region:
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/US_Wave/US_wave_2010.h5'
+wave_file = '/nrel/us-wave/US_wave_2010.h5'
 jurisdication='California'
 with ResourceX(wave_file, hsds=True) as f:
     ca_swh = f.get_region_df('significant_wave_height', jurisdiction,
@@ -135,7 +135,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/us-wave/US_wave_2010.h5', mode='r') as f:
     # Extract meta data and convert from records array to DataFrame
     meta = pd.DataFrame(f['meta'][...])
     # Significant Wave Height
@@ -155,7 +155,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/US_Wave/US_wave_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/us-wave/US_wave_2010.h5', mode='r') as f:
     # Extract time_index and convert to datetime
     # NOTE: time_index is saved as byte-strings and must be decoded
     time_index = pd.to_datetime(f['time_index'][...].astype(str))
