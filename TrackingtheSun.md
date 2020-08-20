@@ -69,7 +69,7 @@ conn = connect(
 df = pd.read_sql("SELECT * FROM oedi.oedi_tracking_the_sun_2019 limit 8;", conn)
 ```
 For jupyter notebook example see our notebook which includes partitions and data dictionary:
-[examples repository](https://github.com/nrel/????)
+[examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
 ##Data Dictionary for 2019 Dataset:
 
