@@ -51,7 +51,7 @@ Installed-Price Sample: (Used in analysis of installed prices)
 
 The Tracking the Sun Dataset is made available in Parquet format on AWS and is partitioned by `state` in AWS Glue and Athena. The schema may change across dataset years on S3.
 
- - `s3://oedi-dev-tracking-the-sun/2019/`
+ - `s3://lbnl-tracking-the-sun`
 
 ##python Connection examples
 
@@ -61,7 +61,7 @@ import pandas as pd
 from pyathena import connect
 
 conn = connect(
-    s3_staging_dir='s3://oedi-staging/tracking-the-sun',
+    s3_staging_dir='s3://<user-defined>/tracking-the-sun', ##user defined staging directory
     region_name='us-west-2',
     ##work_group='<USER SPECIFIC WORKGROUP>'  specify workgroup if exists
 )
