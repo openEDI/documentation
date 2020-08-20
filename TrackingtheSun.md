@@ -63,7 +63,7 @@ from pyathena import connect
 conn = connect(
     s3_staging_dir='s3://<user-defined>/tracking-the-sun', ##user defined staging directory
     region_name='us-west-2',
-    ##work_group='<USER SPECIFIC WORKGROUP>'  specify workgroup if exists
+    work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
 )
 
 df = pd.read_sql("SELECT * FROM oedi.oedi_tracking_the_sun_2019 limit 8;", conn)
