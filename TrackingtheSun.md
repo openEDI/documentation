@@ -55,10 +55,6 @@ The Tracking the Sun Dataset is made available in Parquet format on AWS and is p
 
 ##python Connection examples
 
-https://anaconda.org/conda-forge/pyathena
-https://pypi.org/project/PyAthena/
-
-
 ```python
 
 import pandas as pd
@@ -67,7 +63,7 @@ from pyathena import connect
 conn = connect(
     s3_staging_dir='s3://oedi-staging/tracking-the-sun',
     region_name='us-west-2',
-    ##work_group='<USER SPECIFIC WORKGROUP>'
+    ##work_group='<USER SPECIFIC WORKGROUP>'  specify workgroup if exists
 )
 
 df = pd.read_sql("SELECT * FROM oedi.oedi_tracking_the_sun_2019 limit 8;", conn)
@@ -107,72 +103,71 @@ For jupyter notebook example see our notebook which includes partitions and data
     27. WI
     28. WA
 
-  `data_provider`       	string
-  `system_id_from_first_data_provider`	string
-  `system_id_from_second_data_provider_if_applicable`	string
-  `system_id_tracking_the_sun`	string
-  `installation_date`   	date
-  `system_size`         	double
-  `total_installed_price`	double
-  `appraised_value_flag`	boolean
-  `sales_tax_cost`      	double
-  `rebate_or_grant`     	double
-  `performance_based_incentive_annual_payment`	double
-  `performance_based_incentives_duration`	int
-  `feed_in_tariff_annual_payment`	double
-  `feed_in_tariff_duration`	int
-  `customer_segment`    	string
-  `new_construction`    	int
-  `tracking`            	int
-  `ground_mounted`      	int
-  `battery_system`      	int
-  `zip_code`            	string
-  `city`                	string
-  `utility_service_territory`	string
-  `third_party_owned`   	int
-  `installer_name`      	string
-  `self_installed`      	int
-  `azimuth_1`           	double
-  `azimuth_2`           	double
-  `azimuth_3`           	double
-  `tilt_1`              	double
-  `tilt_2`              	double
-  `tilt_3`              	double
-  `module_manufacturer_1`	string
-  `module_model_1`      	string
-  `module_manufacturer_2`	string
-  `module_model_2`      	string
-  `module_manufacturer_3`	string
-  `module_model_3`      	string
-  `additional_module_model`	int
-  `module_technology_1` 	string
-  `module_technology_2` 	string
-  `module_technology_3` 	string
-  `bipv_module_1`       	int
-  `bipv_module_2`       	int
-  `bipv_module_3`       	int
-  `module_efficiency_1` 	double
-  `module_efficiency_2` 	double
-  `module_efficiency_3` 	double
-  `inverter_manufacturer_1`	string
-  `inverter_manufacturer_2`	string
-  `inverter_manufacturer_3`	string
-  `inverter_model_1`    	string
-  `inverter_model_2`    	string
-  `inverter_model_3`    	string
-  `microinverter_1`     	int
-  `microinverter_2`     	int
-  `microinverter_3`     	int
-  `system_inverter_capacity`	double
-  `dc_optimizer`        	int
-  `inverter_loading_ratio`	double
-  `state`               	string
+  `data_provider`       	string\
+  `system_id_from_first_data_provider`	string\
+  `system_id_from_second_data_provider_if_applicable`	string\
+  `system_id_tracking_the_sun`	string\
+  `installation_date`   	date\
+  `system_size`         	double\
+  `total_installed_price`	double\
+  `appraised_value_flag`	boolean\
+  `sales_tax_cost`      	double\
+  `rebate_or_grant`     	double\
+  `performance_based_incentive_annual_payment`	double\
+  `performance_based_incentives_duration`	int\
+  `feed_in_tariff_annual_payment`	double\
+  `feed_in_tariff_duration`	int\
+  `customer_segment`    	string\
+  `new_construction`    	int\
+  `tracking`            	int\
+  `ground_mounted`      	int\
+  `battery_system`      	int\
+  `zip_code`            	string\
+  `city`                	string\
+  `utility_service_territory`	string\
+  `third_party_owned`   	int\
+  `installer_name`      	string\
+  `self_installed`      	int\
+  `azimuth_1`           	double\
+  `azimuth_2`           	double\
+  `azimuth_3`           	double\
+  `tilt_1`              	double\
+  `tilt_2`              	double\
+  `tilt_3`              	double\
+  `module_manufacturer_1`	string\
+  `module_model_1`      	string\
+  `module_manufacturer_2`	string\
+  `module_model_2`      	string\
+  `module_manufacturer_3`	string\
+  `module_model_3`      	string\
+  `additional_module_model`	int\
+  `module_technology_1` 	string\
+  `module_technology_2` 	string\
+  `module_technology_3` 	string\
+  `bipv_module_1`       	int\
+  `bipv_module_2`       	int\
+  `bipv_module_3`       	int\
+  `module_efficiency_1` 	double\
+  `module_efficiency_2` 	double\
+  `module_efficiency_3` 	double\
+  `inverter_manufacturer_1`	string\
+  `inverter_manufacturer_2`	string\
+  `inverter_manufacturer_3`	string\
+  `inverter_model_1`    	string\
+  `inverter_model_2`    	string\
+  `inverter_model_3`    	string\
+  `microinverter_1`     	int\
+  `microinverter_2`     	int\
+  `microinverter_3`     	int\
+  `system_inverter_capacity`	double\
+  `dc_optimizer`        	int\
+  `inverter_loading_ratio`	double\
+  `state`               	string\
 
 ##References
 
 [https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf)
 
-)
 [https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_briefing_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_briefing_0.pdf)
 
 
