@@ -47,13 +47,13 @@ Installed-Price Sample: (Used in analysis of installed prices)
 – Battery storage included
 – Self-installed
 
-##Directory Structure
+## Directory Structure
 
 The Tracking the Sun Dataset is made available in Parquet format on AWS and is partitioned by `state` in AWS Glue and Athena. The schema may change across dataset years on S3.
 
  - `s3://lbnl-tracking-the-sun`
 
-##python Connection examples
+## python Connection examples
 
 ```python
 
@@ -71,7 +71,7 @@ df = pd.read_sql("SELECT * FROM oedi.oedi_tracking_the_sun_2019 limit 8;", conn)
 For jupyter notebook example see our notebook which includes partitions and data dictionary:
 [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
-##Data Dictionary for 2019 Dataset:
+## Data Dictionary for 2019 Dataset:
 
     Available States
     1. AR
@@ -164,7 +164,7 @@ For jupyter notebook example see our notebook which includes partitions and data
   `inverter_loading_ratio`	double\
   `state`               	string\
 
-##References
+## References
 
 [https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf)
 
