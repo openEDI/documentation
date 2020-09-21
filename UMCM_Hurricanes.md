@@ -4,13 +4,13 @@
 
 The University of Miami Coupled Model (UMCM) is a coupled model that integrates
 atmospheric, wave, and ocean components to produce wind, wave, and current
-data, Atmospheric data is produced using the [Weather Research and Forecasting](https://www.mmm.ucar.edu/weather-research-and-forecasting-model)
+data. Atmospheric data is produced using the [Weather Research and Forecasting](https://www.mmm.ucar.edu/weather-research-and-forecasting-model)
 model (WRF), Wave data is produced using the [University of Miami Wave Model](https://umwm.org/)
 (UMWM), While ocean current data is produce using the
-[HYbrid Coordinate Ocean Model](https://www.hycom.org/) (HYCOM),
+[HYbrid Coordinate Ocean Model](https://www.hycom.org/) (HYCOM).
 
 The model was used to study offshore wind conditions during Hurricane Ike
-and Hurricane Sandy, The time resolution for each model run is as follows:
+and Hurricane Sandy. The time resolution for each model run is as follows:
 
 - Hurricane Ike
   - 1 sample/hour from 9/8/2008 12:00:00 UTC to 9/12/2008 6:00:00 UTC
@@ -84,23 +84,26 @@ The following variables were extracted from the
 
 ## Directory structure
 
-The UMCM data as two .h5:
+The UMCM data is stored in two .h5 files:
 - s3://oedi-data-lake/umcm/
   - ike.h5
   - sandy.h5
 
-The UMCM data is also available via HSDS at /nrel/umcm/,
+The UMCM data is also available via HSDS at /nrel/umcm/.
 
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 
 ## Data Format
 
-The data is provided in high density data file (,h5) separated by year, The
-variables mentioned above are provided in 2 dimensional time-series arrays with
-dimensions (time x location), The temporal axis is defined by the `time_index`
-dataset, while the positional axis is defined by the `meta` dataset. The units
-for the variable data is also provided as an attribute (`units`).
+The UMCM data is stored by in datasets by variable and depth (when available).
+Each dataset is composed of a 3D data "cube" with dimensions (time, latitude,
+longitude). The positional values of each dimension are available in the 1D
+datasets:
+- `time_index`
+- `latitude`
+- `longitude`
 
+Additional locational meta data is available in the `meta` table.
 
 ## References
 
