@@ -21,30 +21,42 @@ The following variables were extracted from the WRF model data:
 - Surface Relative Humidity
 - Inverse Monin Obukhov Length
 
-## Domains
+## Countries
 
-The wind resource was produce using three distinct WRF domains shown below. The
-CONUS domain for 2007-2013 was run by 3Tier while 2014 as well as all years of
-the Canada and Mexico domains were run under NARIS. The data is provided in
-three sets of files:
+### North America
+
+Wind resource for North America was produce using three distinct WRF domains
+shown below. The CONUS domain for 2007-2013 was run by 3Tier while 2014 as well
+as all years of the Canada and Mexico domains were run under NARIS. The data
+is provided in three sets of files:
 
 - CONUS: Extracted exclusively from the CONUS domain
 - Canada: Combined data from the Canada and CONUS domains
 - Mexico: Combined data from the Mexico and CONUS domains
 
+### Asia
+
+Wind resource was also produced fro the following countries and years:
+
+- Bangladesh: 2014-2017
+- Central Asia: 2015
+- India: 2014
+- Kazakhstan: 2015
+- Philippines: 2017
+- Vietnam: 2016-2018
+
 ## Directory structure
 
 Wind resource data is made available as a series of hourly .h5 files
-corresponding to each domain and year. Below is an example of the directory
+corresponding to each country and year. Below is an example of the directory
 structure for the CONUS domains:
-- s3://nrel-pds-wtk/hdf5-source-files-hourly/conus -> root directory for the conus domain
+- s3://nrel-pds-wtk/conus -> root directory for the conus domain
     - /v1.0.0 -> version 1 of the data corresponding to years 2007-2013, run by 3Tier
         - /wtk_conus_${year}.h5 -> Hourly data for all variables for the given year
         - /${year}/wind_${hub_height}.h5 -> Five minute wind resource data for the given year and hub height
     - /v1.1.0 -> version 1.1 of the data corresponding to 2014, run under NARIS with an updated version of WRF and new Boundary Layer Physics (PBL scheme)
 
-The WIND Toolkit data is also available via HSDS at /nrel/wtk/${domain} where
-domain is conus, canada, or mexico
+The WIND Toolkit data is also available via HSDS at /nrel/wtk/${country}.
 
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 

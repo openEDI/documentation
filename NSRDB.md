@@ -54,10 +54,11 @@ The following variables are provided by the NSRDB:
 - Reduced ozone vertical pathlength (ozone)
 - Aerosol single-scatter albedo (ssa)
 
+
 ## Directory structure
 
 Solar resource data is made available as a series of .h5 files corresponding to
-each year and can be found at s3://nrel-pds-nsrdb/hdf5-source-files-v3/nsrdb_${year}.h5
+each year and can be found at s3://nrel-pds-nsrdb/v3/nsrdb_${year}.h5
 
 The NSRDB data is also available via HSDS at /nrel/nsrdb/nsrdb_${year}.h5
 
