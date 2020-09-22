@@ -13,10 +13,6 @@ again on 3/11/2016 and ended 3/26/2016 using zigzag trenched fiber optic
 cabels. Vertical DAS (DASV) data collection began 3/17/2016 and ended 3/28/16
 using a fiber optic cable through the first 363 m of a vertical well.
 
-
-
-
-
 ## Directory structure
 
 The PoroTomo data is available on AWS S3: s3://nrel-pds-porotomo/. The data is
