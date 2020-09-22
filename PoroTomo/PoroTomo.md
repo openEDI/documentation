@@ -86,8 +86,9 @@ Users of the PoroTomo data should please cite:
 Additional information regarding:
 - [SEG-Y-rev1 file structure](https://seg.org/Portals/0/SEG/News%20and%20Resources/Technical%20Standards/seg_y_rev1.pdf)
 - [.h5 file format](https://support.hdfgroup.org/HDF5/doc/H5.format.html)
-- [DAS Data](http://dx.doi.org/10.1093/gji/ggy102 https://www.osti.gov/servlets/purl/1499141)
-- [DAS Data](https://pangea.stanford.edu/ERE/pdf/IGAstandard/SGW/2018/Miller.pdf)
+- [DAS Data](http://dx.doi.org/10.1093/gji/ggy102)
+- [PoroTomo Technical Report](https://www.osti.gov/servlets/purl/1499141)
+- [DAS and DAT Interpretation](https://pangea.stanford.edu/ERE/pdf/IGAstandard/SGW/2018/Miller.pdf)
 - [Metadata](https://gdr.openei.org/submissions/825)
 - [DTS Data](https://gdr.openei.org/submissions/853)
 
