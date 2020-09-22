@@ -43,11 +43,11 @@ the .h5 files available via HSDS which represent 24 hrs of data.
 
 s3://nrel-pds-porotomo/H5/DASH:
 - size: ~1 GB
-- shape: 8721 traces x 30000 samples/trace
+- shape of 'das' variable: 8721 traces x 30000 samples/trace
 
 s3://nrel-pds-porotomo/H5/DASV:
-- size: ~1 GB
-- shape: 384 traces x 30000 samples/trace
+- size: ~0.04 GB
+- shape of 'das' variable: 384 traces x 30000 samples/trace
 
 For examples on accessing the HDF5 files please see our [example notebook](https://github.com/openEDI/documentation/blob/master/PoroTomo/PoroTomo_Distributed_Acoustic_Sensing_(DAS)_Data_hdf5.ipynb)
 
@@ -69,14 +69,14 @@ For examples on setting up and using HSDS please see our [example notebook](http
 
 The following datasets are available in HDF5 and HSDS files:
 
-- channel
-- crs
-- das
-- t
-- trace
-- x
-- y
-- z
+- channel: channel number (along cabel)
+- crs: coordinate reference system (not presently available)
+- das: 2D array with das data (shape: t x channel)
+- t: time in µs with respect to start of survey
+- trace: enumerated integers over length of the trace
+- x: x position of channel (not presently available)
+- y: y position of channel (not presently available)
+- z: z position of channel (not presently available)
 
 ## References:
 
