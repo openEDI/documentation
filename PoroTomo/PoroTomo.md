@@ -70,13 +70,13 @@ For examples on setting up and using HSDS please see our [example notebook](http
 The following datasets are available in HDF5 and HSDS files:
 
 - channel: channel number (along cabel)
-- crs: coordinate reference system (not presently available)
+- crs: coordinate reference system
 - das: 2D array with das data (shape: t x channel)
 - t: time in µs with respect to start of survey
 - trace: enumerated integers over length of the trace
-- x: x position of channel (not presently available)
-- y: y position of channel (not presently available)
-- z: z position of channel (not presently available)
+- x: x position of channel
+- y: y position of channel
+- z: z position of channel
 
 ## References:
 
