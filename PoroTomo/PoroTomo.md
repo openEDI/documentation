@@ -1,5 +1,6 @@
 # PoroTomo
-PoroTomo DAS data in both SEG-Y and .h5 formats with tutorial notebooks for use. The data is also abailable in .h5 format via HSDS.
+PoroTomo DAS data in both SEG-Y and .h5 formats with tutorial notebooks for use. 
+The data is also abailable in .h5 format via HSDS.
 
 These data were collected during March 2016 at Brady Hot Springs, NV. Silixa’s
 iDAS (TM) was used for data acquisition with 1.021 m channel spacing and a
@@ -16,7 +17,8 @@ using a fiber optic cable through the first 363 m of a vertical well.
 
 Files are stored in daily directories labeled using the format YYYYMMDD.
 Individual files names include the date and time appended at the end in the
-format YYMMDDHHMMSS. Each file respresents 30 s of data.
+format YYMMDDHHMMSS. Each file respresents 30 s of data, with the exception of 
+the .h5 files available via HSDS which represent 24 hrs of data.
 
 DASH SEG-Y files:
     size: ~1-2 GB each
