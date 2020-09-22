@@ -91,4 +91,3 @@ Additional information regarding:
 - [DAS and DAT Interpretation](https://pangea.stanford.edu/ERE/pdf/IGAstandard/SGW/2018/Miller.pdf)
 - [Metadata](https://gdr.openei.org/submissions/825)
 - [DTS Data](https://gdr.openei.org/submissions/853)
-
