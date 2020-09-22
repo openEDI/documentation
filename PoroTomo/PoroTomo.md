@@ -1,5 +1,5 @@
 # PoroTomo
-PoroTomo DAS data in both SEG-Y and .h5 formats with tutorial notebook for use.
+PoroTomo DAS data in both SEG-Y and .h5 formats with tutorial notebooks for use. The data is also abailable in .h5 format via HSDS.
 
 These data were collected during March 2016 at Brady Hot Springs, NV. Silixa’s
 iDAS (TM) was used for data acquisition with 1.021 m channel spacing and a
@@ -28,8 +28,14 @@ DASH .h5 files:
     size: ~1 GB
     shape: 8721 traces x 30000 samples/trace
 DASV .h5 files:
-    size: ~1 GB
+    size: ~0.04 GB
     shape: 384 traces x 30000 samples/trace.
+DASH .h5 files available via HSDS:
+    size: ~3000 GB
+    shape: 384 traces x ~86400000 samples/trace.
+DASV .h5 files available via HSDS:
+    size: ~20 GB
+    shape: 384 traces x ~86400000 samples/trace.
 
 References:
 
