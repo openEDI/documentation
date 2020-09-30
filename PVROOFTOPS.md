@@ -1,69 +1,84 @@
 # PV Rooftops
 
+## Description
+
+The National Renewable Energy Laboratory's (NREL) PV Rooftop Database (PVRDB) is a lidar-derived, geospatially-resolved dataset of suitable roof surfaces and their PV technical potential for 128 metropolitan regions in the United States. The source lidar data and building footprints were obtained by the U.S. Department of Homeland Security Homeland Security Infrastructure Program for 2006-2014. Using GIS methods, NREL identified suitable roof surfaces based on their size, orientation, and shading parameters Gagnon et al. (2016). Standard 2015 technical potential was then estimated for each plane using NREL's System Advisory Model.
+
+The PVRDB is down-loadable by city and year of lidar collection. Five geospatial layers are available for each city and year: 1) the raster extent of the lidar collection, 2) buildings identified from the lidar data, 3) suitable developable planes for each building, 4) aspect values of the developable planes, and 5) the technical potential estimates of the developable planes.
+
+##Data Format
+
 The PV Rooftops dataset is provided in Parquet format partitioned by city.  There are 4 core datasets stored in S3 partitioned by region(city)-year for downloads of single cities or to allow city-specific queries or queries across the dataset using Glue/Athena:
 
 /aspects
+field | data_type | description
+-- | -- | --
+`gid` | bigint |  
+`city` | string | city of source lidar dataset
+`state` | string | state of source lidar dataset
+`year` | bigint | year of source lidar dataset
+`bldg_fid` | bigint | building id
+`aspect` | bigint | aspect value
+`the_geom_96703` | string | projected geometry ([US Contiguous Albers Equal Area Conic - SRID 6703](https://spatialreference.org/ref/sr-org/6703/))
+`the_geom_4326` | string | geometry ([WGS 1984 - SRID   4326](https://spatialreference.org/ref/epsg/4326/))
+`region_id` | bigint |  
 
-  `gid` bigint,
-  `city` string,
-  `state` string,
-  `year` bigint,
-  `bldg_fid` bigint,
-  `aspect` bigint,
-  `the_geom_96703` string,
-  `the_geom_4326` string,
-  `region_id` bigint,
-  `__index_level_0__` bigint
 
 /buildings
 
-  `gid` bigint,
-  `bldg_fid` bigint,
-  `the_geom_96703` string,
-  `the_geom_4326` string,
-  `city` string,
-  `state` string,
-  `year` bigint,
-  `region_id` bigint,
-  `__index_level_0__` bigint
+field | data_type | description
+-- | -- | --
+`gid` | bigint |  
+`bldg_fid` | bigint | the building fid
+`the_geom_96703` | string | projected geometry ([US Contiguous Albers Equal Area Conic - SRID 6703](https://spatialreference.org/ref/sr-org/6703/))
+`the_geom_4326` | string | geometry ([WGS 1984 - SRID   4326](https://spatialreference.org/ref/epsg/4326/))
+`city` | string | the city of the source lidar data
+`state` | string | the state of the source lidar data
+`year` | bigint | the year of the source lidar data
+`region_id` | bigint |  
+
 
 /developable_planes
 
-  `bldg_fid` bigint,
-  `footprint_m2` double,
-  `slope` bigint,
-  `flatarea_m2` double,
-  `slopeconversion` double,
-  `slopearea_m2` double,
-  `zip` string,
-  `zip_perc` double,
-  `aspect` bigint,
-  `gid` bigint,
-  `city` string,
-  `state` string,
-  `year` bigint,
-  `region_id` bigint,
-  `the_geom_96703` string,
-  `the_geom_4326` string,
-  `__index_level_0__` bigint
+field | data_type | description
+-- | -- | --
+`bldg_fid` | bigint | building ID associated with the developable plane
+`footprint_m2` | double | developable plane footprint area (m2)
+`slope` | bigint | slope value
+`flatarea_m2` | double | flat area of the developable plane (m2)
+`slopeconversion` | double | the slope conversion factor used to convert the flat area into the sloped   area
+`slopearea_m2` | double | sloped area of the developable plane (m2)
+`zip` | string | zipcode
+`zip_perc` | double |  
+`aspect` | bigint | the aspect value of the developable plane
+`gid` | bigint | unique developable plane ID
+`city` | string | the city of the source lidar data
+`state` | string | the state of the source lidar data
+`year` | bigint | the year of the source lidar data
+`region_id` | bigint |  
+`the_geom_96703` | string | projected geometry ([US Contiguous Albers Equal Area Conic - SRID 6703](https://spatialreference.org/ref/sr-org/6703/))
+`the_geom_4326` | string | geometry ([WGS 1984 - SRID   4326](https://spatialreference.org/ref/epsg/4326/))
+
 
 /rasd
 
-  `gid` bigint,
-  `the_geom_96703` string,
-  `the_geom_4326` string,
-  `city` string,
-  `state` string,
-  `year` bigint,
-  `region_id` bigint,
-  `serial_id` bigint,
-  `__index_level_0__` bigint
-
+field | data_type | description
+-- | -- | --
+`gid` | bigint | the unique geographic ID of the raster domain
+`the_geom_96703` | string | projected geometry ([US Contiguous Albers Equal Area Conic - SRID 6703](https://spatialreference.org/ref/sr-org/6703/))
+`the_geom_4326` | string | geometry ([WGS 1984 - SRID   4326](https://spatialreference.org/ref/epsg/4326/))
+`city` | string | the city of the source lidar data
+`state` | string | the state of the source lidar data
+`year` | bigint | the year of the source lidar data
+`region_id` | bigint |  
+`serial_id` | bigint |  
+`__index_level_0__` | bigint |  
 
 
 Within each core dataset there are paritions by city_state_year(YY) that can be queried directly via Athena or PrestoDB with relatively quick response times, or downloaded as a Parquet format data file.
 
 Aspects Lookup:
+```
 1	337.5 - 22.5	north
 2	22.5 - 67.5	northeast
 3	67.5 - 112.5	east
@@ -73,8 +88,10 @@ Aspects Lookup:
 7	247.5 - 292.5	west
 8	292.5 - 337.5	northwest
 0	flat	flat
+```
 
 Regions Lookup:
+```
 1	Albany	NY	2006-01-01
 2	Albany	NY	2013-01-01
 3	Albuquerque	NM	2006-01-01
@@ -243,4 +260,80 @@ Regions Lookup:
 167	Andrews AFB	DC	2012-01-01
 136	San Bernardino-Riverside	CA	2012-01-01
 168	Tampa	FL	2013-01-01
+```
 
+## Model
+
+Coming Soon: Details on the PV Suitability Model.
+
+## Directory structure
+
+The Tracking the Sun Dataset is made available in Parquet format on AWS in S3. The four main datasets are stored in individual folders, and each partition is stored in an individual subfolder within each directory.  
+
+ - `s3://oedi_pv_rooftops/`
+
+Main datasets
+ /aspects
+ /buildings
+ /developable_planes
+ /rasd
+
+Partitions
+/city_state_year    i.e. (/dover_de_09)
+
+
+## Python Examples
+
+'Python'
+
+import pandas as pd
+from pyathena import connect
+
+conn = connect(
+    s3_staging_dir='s3://<USER DEFINED STAGING>/', ##user defined staging directory
+    region_name='us-west-2',
+    work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
+)
+
+df = pd.read_sql("SELECT * FROM oedi.pv_rooftops_developable_planes limit 8;",conn)
+
+
+For jupyter notebook example see our notebook which includes partitions and data dictionary:
+[examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
+
+
+## References
+
+Main References:
+1. [Rooftop Solar Photovoltaic Technical Potential in the United States: A Detailed Assessment](https://www.nrel.gov/docs/fy16osti/65298.pdf)
+
+2. [Using GIS-based methods and lidar data to estimate rooftop solar technical potential in US cities](https://iopscience.iop.org/article/10.1088/1748-9326/aa7225/pdf)
+
+3. [Estimating rooftop solar technical potential across the US using a combination of GIS-based methods, lidar data, and statistical modeling](https://iopscience.iop.org/article/10.1088/1748-9326/aaa554/pdf)
+
+4. [Rooftop Photovoltaic Technical Potential in the United States](https://data.nrel.gov/submissions/121)
+
+5. [U.S. PV-Suitable Rooftop Resources](https://data.nrel.gov/submissions/47)
+
+Related Reference:
+
+1. [Rooftop Solar Technical Potential for Low-to-Moderate Income Households in the United States](https://www.nrel.gov/docs/fy18osti/70901.pdf)
+
+2. [Rooftop Energy Potential of Low Income Communities in America REPLICA](https://data.nrel.gov/submissions/81)
+
+3. [Puerto Rico Solar-for-All: LMI PV Rooftop Technical Potential and Solar Savings Potential](https://data.nrel.gov/submissions/144)
+
+
+## Disclaimer and Attribution
+
+Copyright (c) 2020, Alliance for Sustainable Energy LLC, All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
