@@ -284,7 +284,7 @@ Partitions
 
 ## Python Examples
 
-'Python'
+```python
 
 import pandas as pd
 from pyathena import connect
