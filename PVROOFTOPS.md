@@ -298,8 +298,7 @@ conn = connect(
 df = pd.read_sql("SELECT * FROM oedi.pv_rooftops_developable_planes limit 8;",conn)
 
 
-For jupyter notebook example see our notebook which includes partitions and data dictionary:
-[examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
+For jupyter notebook example see our notebook which includes partitions and data dictionary: [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
 
 ## References
