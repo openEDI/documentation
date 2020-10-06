@@ -1,5 +1,7 @@
 # dGen Data: Distributed Generation Market Demand (dGen) Model
 
+The Distributed Generation Market Demand (dGen) model simulates customer adoption of distributed energy resources (DERs) for residential, commercial, and industrial entities in the United States or other countries through 2050. 
+
 The dGen model can be used for:
 - Identifying the sectors, locations, and customers for whom adopting DERs would have a high economic value
 - Generating forecasts as an input to estimate distribution hosting capacity analysis, integrated resource planning, and load forecasting
@@ -43,7 +45,7 @@ Variable definitions and data types can be found in the data dictionary.
 
 ## Restoring Databases
 
-Example scripts to restore unzipped database files are provided below. For full documentation of the dGen Model and setting up and using the dGen Model, please visit our [open source repositroy](https://github.com/NREL/dgen)
+Example scripts to restore unzipped database files are provided below. For full documentation of the dGen Model and setting up and using the dGen Model, please visit our [open source repository](https://github.com/NREL/dgen)
 
 1. Create the docker container and postgreSQL server:
 
