@@ -70,6 +70,7 @@ Example scripts to restore unzipped database files are provided below. For full 
 Note, make sure linux commands are enabled in order to properly restore the database. 
 Also note that the full database can take around an hour to restore. All of the database files will take time to restore, so please be patient and plan accordingly.
 
+
 ## License
 
 
