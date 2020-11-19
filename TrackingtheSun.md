@@ -51,7 +51,7 @@ Installed-Price Sample: (Used in analysis of installed prices)
 
 The Tracking the Sun Dataset is made available in Parquet format on AWS and is partitioned by `state` in AWS Glue and Athena. The schema may change across dataset years on S3.
 
- - `s3://lbnl-tracking-the-sun`
+ - `s3://oedi-data-lake/tracking-the-sun/2019/`
 
 ## python Connection examples
 
@@ -66,7 +66,7 @@ conn = connect(
     work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
 )
 
-df = pd.read_sql("SELECT * FROM oedi.oedi_tracking_the_sun_2019 limit 8;", conn)
+df = pd.read_sql("SELECT * FROM oedi_tracking_the_sun_2019 limit 8;", conn)
 ```
 For jupyter notebook example see our notebook which includes partitions and data dictionary:
 [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
