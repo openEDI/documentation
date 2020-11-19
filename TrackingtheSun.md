@@ -166,10 +166,11 @@ For jupyter notebook example see our notebook which includes partitions and data
 
 ## References
 
-[https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_edition_final_0.pdf)
+[https://emp.lbl.gov/sites/default/files/tracking_the_sun_2019_report.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2019_report.pdf)
 
-[https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_briefing_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2018_briefing_0.pdf)
+[https://emp.lbl.gov/sites/default/files/tracking_the_sun_2019_slide_deck_summary_0.pdf](https://emp.lbl.gov/sites/default/files/tracking_the_sun_2019_slide_deck_summary_0.pdf)
 
+[https://emp.lbl.gov/tracking-sun-tool](https://emp.lbl.gov/tracking-sun-tool)
 
 ## Disclaimer and Attribution
 
