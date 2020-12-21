@@ -15,6 +15,11 @@ again on 3/11/2016 and ended 3/26/2016 using zigzag trenched fiber optic
 cabels. Vertical DAS (DASV) data collection began 3/17/2016 and ended 3/28/2016
 using a fiber optic cable through the first 363 m of a vertical well.
 
+The resampled DASH data are Matlab files	with	data	for	the	surface	DAS	(DASH) array	deployed	at	the	
+PoroTomo	natural	laboratory	in	March	2016.	Each	file	contains	30	seconds	worth	of	data	
+for	8721	channels.	These	files	have	been	resampled	in	time	from	the	original	data	and	have	
+a	sample	rate	of	100	samples/second.
+
 The nodal seismometer data consists of continuous and windowed (to vibroseis sweep) SAC files. Nodal data collection began between 3/6/2016 and 3/11/2016 depending on the station, and ended between 3/26/2016 and 3/28/2016 also depending on the station. Station names, locations, start times, stop times, and orientations can be found in the nodal seismometer metadata linked below.
 
 ## DAS
@@ -33,6 +38,11 @@ format YYMMDDHHMMSS. Each file respresents 30 s of data.
 s3://nrel-pds-porotomo/DAS/SEG-Y/DASH:
 - size: ~1-2 GB each
 - shape: 8721 traces x 30000 samples/trace
+
+s3://nrel-pds-porotomo/DAS/SEG-Y/DASH/Resampled:
+- format: MATLAB files created through resampling of SEG-Y files
+- size: ~0.19 MB
+- shape of 'data' object: 30000 npts x 8721 nch
 
 s3://nrel-pds-porotomo/DAS/SEG-Y/DASV:
 - size: ~0.01-0.02 GB each
