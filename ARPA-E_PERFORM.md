@@ -73,8 +73,7 @@ are collected from ERCOT Interconnection Queue. These wind and solar sites are
 grouped into eight load/weather zones and the whole system area based on the
 ERCOT topology.
 
-
-The following variables are provided:
+The following variables are provided for ERCOT:
 - Meta data (coordinates, capacity, and other configuration data):
     - 125 actual wind sites
     - 139 proposed wind sites
@@ -94,14 +93,9 @@ The following variables are provided:
 The ARPA-E PERFORM is made available as a series of .h5 files and can be found at:
 `s3://arpa-e-perform/
 
-[//]: # (We need to provide examples of how the site-level, zone-level, and system-level directories are layed out)
-
 ## Data Format
 
 The data is provided in high density data file (.h5).
-
-[//]: # (We need to provide examples of how the .h5 files are formatted
-[//]: # (At minimum: what are the dataset names and shapes)
 
 ## Python Examples
 
