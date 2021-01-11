@@ -1,47 +1,51 @@
-# NREL ARPA-E PERFORM Datasets
+# ARPA-E PERFORM Datasets produce by NREL
 
 ## ARPA-E PERFORM
 
-[//]: (We need to add a paragraph describing what the ARPA-E PERFORM project is)
-
-## Time-coincident power and load
+The ARPA-E PERFORM Program is an ARPA-E funded program that aim to use
+time-coincident power and load seeks to develop innovative management systems
+that represent the relative delivery risk of each asset and balance the
+collective risk of all assets across the grid. A risk-driven paradigm allows
+operators to: (i) fully understand the true likelihood of maintaining a
+supply-demand balance and system reliability, (ii) optimally manage the system,
+and (iii) assess the true value of essential reliability services. This
+paradigm shift is critical for all power systems and is essential for grids
+with high levels of stochastic resources. Projects will propose methods to
+quantify and manage risk at the asset level and at the system level. Additional
+descriptions about the ARPA-E PERFORM program can be found on the
+[ARPA-E website](https://arpa-e.energy.gov/technologies/programs/perform).
 
 In support of the ARPA-E PERFORM project, NREL has produced a set of
-time-coincident load, wind, and solar generation profiles.
-[//]: (Add a few more general sentences about the actuals / forecasts)
-
- so dataset that consists of two year (2017-2018) of
-time-coincident load, wind, and solar actuals and one year (2018) of
-time-coincident load, wind, and solar probabilistic forecasts for a region
-similar to The Electric Reliability Council of Texas (ERCOT). The ARPA-E
-PERFORM provides actual and forecasting data at various spatial (i.e.,
-site-level, zone-level, and system-level) and temporal scales (i.e.,
-day-ahead, intra-day, and intra-hour).
+time-coincident load, wind, and solar generation profiles, including actual and
+forecasting time series. Both actuals and forecasts are provided in form of
+time-series with high temporal and spatial fidelity. Both deterministic and
+probabilistic forecasts are contained in the dataset.
 
 ### Actuals
 
+Actuals data are provided with a 5-min resolution for two years at the
+site-level (only for solar and wind), zone-level, and system-level.
+
 #### Solar
+
+Actuals solar generation data are generated based on the National Solar
+Radiation Database (NSRDB) at the site-level, the zone-level, and the
+system-level, respectively. Solar power time series is simulated by the NREL's
+System Advisor Model (SAM) with meteorological data and meta configuration at
+the site-level. Then, zone-level and system-level actual time series are
+obtained by aggregating site-level data accordingly.
 
 #### Wind
 
+Meteorological wind resource data is generated using the Weather Research and
+Forecasting model (WRF). This data is then used to produce actuals wind
+generation data using the methodology discussed above for solar actuals.
+
 #### Load
+
+Load data are collected from ISO's websites.
 
 ### Forecasts
-
-#### Solar and Wind
-
-#### Load
-
-
-[//]: # (I suggest we break the below paragraphs up into the above structure.)
-[//]: # (NOTE: We will have to make broader claims about where load is coming from)
-
-[//]: # (This paragraph is confusing. It suggests that both the solar AND wind actuals were derived from the NSRDB)
-Actuals data are provided with a 5-min resolution. Specifically, wind and solar
-data are generated based on the The National Solar Radiation Database (NSRDB)
-at site-level, zone-level, and system-level, respectively. Load data are
-collected and processes based on the ERCOT load at the zone-level and
-system-level.
 
 Forecasting data are provided at three temporal scales with different
 operational characterstics. Day-ahead forecasts are generated with a
@@ -49,13 +53,26 @@ operational characterstics. Day-ahead forecasts are generated with a
 update rate. Intra-day forecasts are generated with a 6-hour-ahead lead time,
 a 6-hour horizon, an hourly resolution, and a 6-hour update rate. Intra-hour
 forecasts are generated with a 1-hour-ahead lead time, a 2-hour horizon, a
-15-minute resolution, and a hourly update rate. Day-ahead and intra-day
-forecasting relies on the European Centre for Medium-Range Weather Forecasts
-(ECMWF) output that consists of deterministic forecasts from 51 members.
-Intra-hour forecasting relies on the historical synthetic actual data.
-Probabilistic forecasts are in the form of 1-99 percentiles.
+15-minute resolution, and a hourly update rate. Probabilistic forecasts are in
+the form of 1-99 percentiles.
 
-## Domains
+#### Solar and Wind
+
+Day-ahead and intra-day forecasting relies on the European Centre for
+Medium-Range Weather Forecasts(ECMWF) output that consists of deterministic
+forecasts from 51 members. The Bayesian Model Averaging is used to generate
+probabilistic forecasts on top of the deterministic forecasts from the 51 ECMWF
+members. Intra-hour forecasting relies on the Machine Learning-based
+Multi-Model (M3) and the historical synthetic actual data.
+
+#### Load
+
+Load forecasting at three time-scales are generated by the deep learning
+ensemble. Recurrent neural network, convolutional neural network, and extreme
+gradient boosting are used to generate deterministic forecasts, which are
+converted to probabilistic forecasts by the adaptive Gaussian model.
+
+## ISOs
 
 ### The Electric Reliability Council of Texas (ERCOT)
 
@@ -90,8 +107,83 @@ The following variables are provided for ERCOT:
 
 ## Directory structure
 
-The ARPA-E PERFORM is made available as a series of .h5 files and can be found at:
-`s3://arpa-e-perform/
+The ARPA-E PERFORM data is made available as a series of .h5 files and can be
+found at:
+`s3://arpa-e-perform/`
+- ERCOT/
+  - solar_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
+  - wind_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
+  - load_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
+  - 2018/
+    - Solar/
+      - Actuals/
+        - Site_level/
+        - BA_level/
+        - Zone_level/
+      - Forecasts
+        - Day-ahead
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+        - Intra-day
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+        - Intra-hour
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+    - Wind/
+      - Actuals/
+        - Site_level/
+        - BA_level/
+        - Zone_level/
+      - Forecasts
+        - Day-ahead
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+        - Intra-day
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+        - Intra-hour
+          - Site_level/
+          - BA_level/
+          - Zone_level/
+    - ECMWF/
+      - Control/
+    - Load/
+      - Actuals/
+        - BA_level/
+        - Zone_level/
+      - Forecasts
+        - Day-ahead
+          - BA_level/
+          - Zone_level/
+        - Intra-day
+          - BA_level/
+          - Zone_level/
+        - Intra-hour
+          - BA_level/
+          - Zone_level/
+  - 2017/
+    - Solar/
+      - Actuals/
+        - Site_level/
+        - BA_level/
+        - Zone_level/
+    - Wind/
+      - Actuals/
+        - Site_level/
+        - BA_level/
+        - Zone_level/
+    - ECMWF/
+      - Control/
+    - Load/
+      - Actuals/
+        - BA_level/
+        - Zone_level/
 
 ## Data Format
 
