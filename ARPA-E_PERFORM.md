@@ -153,6 +153,8 @@ found at:
           - Zone_level/
     - ECMWF/
       - Control/
+        - Day-ahead/
+        - Intra-day/
     - Load/
       - Actuals/
         - BA_level/
@@ -180,6 +182,8 @@ found at:
         - Zone_level/
     - ECMWF/
       - Control/
+        - Day-ahead/
+        - Intra-day/
     - Load/
       - Actuals/
         - BA_level/
