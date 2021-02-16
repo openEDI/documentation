@@ -17,8 +17,8 @@ entity with marine operations inside the U.S. EEZ.
 A technical summary of the dataset is as follows:
 
 - 32 Year Wave Hindcast (1979-2010), 3-hour temporal resolution
-- Unstructured grid spatial resolution ranges from 200 meters in shallow water to ~10 km in deep water (700,000 grid points in West Coast dataset)
-- Current spatial coverage: EEZ offshore of U.S. West Coast (other regions coming soon, see below)
+- Unstructured grid spatial resolution ranges from 200 meters in shallow water to ~10 km in deep water
+- Spatial coverage: EEZ offshore of all U.S territories (see below)
 
 The following variables are included in the dataset:
 
@@ -33,16 +33,15 @@ The following variables are included in the dataset:
 - Omni-Directional Wave Power: Total wave energy flux from all directions
 - Spectral Width: Spectral width characterizes the relative spreading of energy in the wave spectrum
 
-Currently the dataset only covers the EEZ offshore of the U.S. West Coast, but
-it will be updated to include all other U.S. regions by 2022.
-The timeline for extending the dataset is as follows:
+The following U.S. regions will be added to this dataset under the given
+`domain` names
 
-- West Coast United States: Dataset Available
+- West Coast United States: `West_Coast`
 - East Coast United States: TBD
-- Alaskan Coast: October 2020
-- Hawaiian Islands: October 2020
+- Alaskan Coast: TBD
+- Hawaiian Islands: `Hawaii`
 - Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands: TBD
-- U.S. Pacific Island Territories: Dec 2021
+- U.S. Pacific Island Territories: TBD
 
 ## Model
 
@@ -69,10 +68,10 @@ DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
 High Resolution Ocean Surface Wave Hindcast data is made available as a series
 of hourly .h5 located on AWS S3:
-- `s3://wpto-pds-us-wave/v1.0.0`
+- `s3://wpto-pds-US_wave/v1.0.0/${domain}`
 
 
-The US wave data is also available via HSDS at `/nrel/us-wave`
+The US wave data is also available via HSDS at `/nrel/US_wave`
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 
 ## Data Format
@@ -96,7 +95,7 @@ The easiest way to access and extract data from the Resource eXtraction tool
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/us-wave/US_wave_2010.h5'
+wave_file = '/nrel/US_wave/West_Coast/West_Coast_wave_2010.h5'
 with ResourceX(wave_file, hsds=True) as f:
     meta = f.meta
     time_index = f.time_index
@@ -109,7 +108,7 @@ location:
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/us-wave/US_wave_2010.h5'
+wave_file = '/nrel/US_wave/West_Coast/West_Coast_wave_2010.h5'
 lat_lon = (34.399408, -119.841181)
 with ResourceX(wave_file, hsds=True) as f:
     lat_lon_swh = f.get_lat_lon_df('significant_wave_height', nwtc)
@@ -120,7 +119,7 @@ or to extract all sites in a given region:
 ```python
 from rex import ResourceX
 
-wave_file = '/nrel/us-wave/US_wave_2010.h5'
+wave_file = '/nrel/US_wave/West_Coast/West_Coast_wave_2010.h5'
 jurisdication='California'
 with ResourceX(wave_file, hsds=True) as f:
     ca_swh = f.get_region_df('significant_wave_height', jurisdiction,
@@ -135,7 +134,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/us-wave/US_wave_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/US_wave/West_Coast/West_Coast_wave_2010.h5', mode='r') as f:
     # Extract meta data and convert from records array to DataFrame
     meta = pd.DataFrame(f['meta'][...])
     # Significant Wave Height
@@ -155,7 +154,7 @@ import h5pyd
 import pandas as pd
 
 # Open .h5 file
-with h5pyd.File('/nrel/us-wave/US_wave_2010.h5', mode='r') as f:
+with h5pyd.File('/nrel/US_wave/West_Coast/West_Coast_wave_2010.h5', mode='r') as f:
     # Extract time_index and convert to datetime
     # NOTE: time_index is saved as byte-strings and must be decoded
     time_index = pd.to_datetime(f['time_index'][...].astype(str))
