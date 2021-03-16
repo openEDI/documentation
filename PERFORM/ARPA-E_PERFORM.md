@@ -162,6 +162,18 @@ found at:
         - BA_level/{BA}_load_actuals_2017.h5
         - Zone_level/{Zone}_load_actuals_2017.h5
 
-## Data Format
+## File Format
 
-The data is provided in high density data file (.h5).
+The data is provided in high density data file format HDF5 (.h5). The files
+contain the following datasets with following shapes:
+
+### Actuals
+  - actuals (time-steps, sites)
+  - meta (sites, )
+  - time_index (time-steps, )
+
+### Forecasts
+  - forecasts (time-steps, 100 # percentiles)
+  - meta (1,) # Forecasts are provided by size, zone, or BA
+  - issue_time (time-steps, )
+  - forecast_time (time-steps, )
