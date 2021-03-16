@@ -21,6 +21,8 @@ forecasting time series. Both actuals and forecasts are provided in form of
 time-series with high temporal and spatial fidelity. Both deterministic and
 probabilistic forecasts are contained in the dataset.
 
+## Datasets
+
 ### Actuals
 
 Actuals data are provided with a 5-min resolution for two years at the
@@ -73,37 +75,7 @@ gradient boosting are used to generate deterministic forecasts, which are
 converted to probabilistic forecasts by the adaptive Gaussian model.
 
 ## ISOs
-
-### The Electric Reliability Council of Texas (ERCOT)
-
-Time-coincident data for ERCOT consists of two year (2017, 2018) of actuals
-and one year (2018) of probabilistic forecasts. This data is provided at
-various spatial (i.e., site-level, zone-level, and system-level) and temporal
-scales (i.e., day-ahead, intra-day, and intra-hour).
-
-Data is provided for 125 existing wind sites, 22 existing solar sites, 139
-proposed wind sites, and 204 proposed solar sites in ERCOT. Existing wind and
-solar plants and their meta data are collected from multiple data sources,
-including the U.S. Wind Turbine Database, OpenEI, and the U.S. Energy
-Information Administration. Proposed wind and solar sites and their meta data
-are collected from ERCOT Interconnection Queue. These wind and solar sites are
-grouped into eight load/weather zones and the whole system area based on the
-ERCOT topology.
-
-The following variables are provided for ERCOT:
-- Meta data (coordinates, capacity, and other configuration data):
-    - 125 actual wind sites
-    - 139 proposed wind sites
-    - 22 actual solar sites
-    - 204 proposed solar sites
-- Actual data (power [MW]):
-    - Wind power (site-level, zone-level, and system-level)
-    - Solar power (site-level, zone-level, and system-level)
-    - Load (zone-level and system-level)
-- Probabilistic forecasting data (power [MW]):
-    - Wind power (site-level, zone-level, and system-level)
-    - Solar power (site-level, zone-level, and system-level)
-    - Load (zone-level and system-level)
+- The Electric Reliability Council of Texas (ERCOT)
 
 ## Directory structure
 
@@ -111,90 +83,85 @@ The ARPA-E PERFORM data is made available as a series of .h5 files and can be
 found at:
 `s3://arpa-e-perform/`
 - ERCOT/
-  - solar_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
-  - wind_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
-  - load_meta.xlxs [//] # (File with meta data for all .h5 files in below directories)
+  - MetaData/
+    - solar_meta.xlxs
+    - wind_meta.xlxs
+    - load_meta.xlxs
   - 2018/
     - Solar/
       - Actuals/
-        - Site_level/
-        - BA_level/
-        - Zone_level/
+        - Site_level/{Site}_solar_actuals_2018.h5
+        - BA_level/{BA}_solar_actuals_2018.h5
+        - Zone_level/{Zone}_solar_actuals_2018.h5
       - Forecasts
         - Day-ahead
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_solar_day-ahead_fcst_2018.h5
+          - BA_level/{BA}_solar_day-ahead_fcst_2018.h5
+          - Zone_level/{Zone}_solar_day-ahead_fcst_2018.h5
         - Intra-day
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_solar_intra-day_fcst_2018.h5
+          - BA_level/{BA}_solar_intra-day_fcst_2018.h5
+          - Zone_level/{Zone}_solar_intra-day_fcst_2018.h5
         - Intra-hour
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_solar_intra-hour_fcst_2018.h5
+          - BA_level/{BA}_solar_intra-hour_fcst_2018.h5
+          - Zone_level/{Zone}_solar_intra-hour_fcst_2018.h5
     - Wind/
       - Actuals/
-        - Site_level/
-        - BA_level/
-        - Zone_level/
+        - Site_level/{Site}_wind_actuals_2018.h5
+        - BA_level/{BA}_wind_actuals_2018.h5
+        - Zone_level/{Zone}_wind_actuals_2018.h5
       - Forecasts
         - Day-ahead
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_wind_day-ahead_fcst_2018.h5
+          - BA_level/{BA}_wind_day-ahead_fcst_2018.h5
+          - Zone_level/{Zone}_wind_day-ahead_fcst_2018.h5
         - Intra-day
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_wind_intra-day_fcst_2018.h5
+          - BA_level/{BA}_wind_intra-day_fcst_2018.h5
+          - Zone_level/{Zone}_wind_intra-day_fcst_2018.h5
         - Intra-hour
-          - Site_level/
-          - BA_level/
-          - Zone_level/
+          - Site_level/{Site}_wind_intra-hour_fcst_2018.h5
+          - BA_level/{BA}_wind_intra-hour_fcst_2018.h5
+          - Zone_level/{Zone}_wind_intra-hour_fcst_2018.h5
     - ECMWF/
       - Control/
         - Day-ahead/
         - Intra-day/
     - Load/
       - Actuals/
-        - BA_level/
-        - Zone_level/
+        - BA_level/{BA}_load_actuals_2018.h5
+        - Zone_level/{Zone}_load_actuals_2018.h5
       - Forecasts
         - Day-ahead
-          - BA_level/
-          - Zone_level/
+          - BA_level/{BA}_load_day-ahead_fcst_2018.h5
+          - Zone_level/{Zone}_load_day-ahead_fcst_2018.h5
         - Intra-day
-          - BA_level/
-          - Zone_level/
+          - BA_level/{BA}_load_intra-day_fcst_2018.h5
+          - Zone_level/{Zone}_load_intra-day_fcst_2018.h5
         - Intra-hour
-          - BA_level/
-          - Zone_level/
+          - BA_level/{BA}_load_intra-hour_fcst_2018.h5
+          - Zone_level/{Zone}_load_intra-hour_fcst_2018.h5
   - 2017/
     - Solar/
       - Actuals/
-        - Site_level/
-        - BA_level/
-        - Zone_level/
+        - Site_level/{Site}_solar_actuals_2017.h5
+        - BA_level/{BA}_solar_actuals_2017.h5
+        - Zone_level/{Zone}_solar_actuals_2017.h5
     - Wind/
       - Actuals/
-        - Site_level/
-        - BA_level/
-        - Zone_level/
+        - Site_level/{Site}_wind_actuals_2017.h5
+        - BA_level/{BA}_wind_actuals_2017.h5
+        - Zone_level/{Zone}_wind_actuals_2017.h5
     - ECMWF/
       - Control/
         - Day-ahead/
         - Intra-day/
     - Load/
       - Actuals/
-        - BA_level/
-        - Zone_level/
+        - BA_level/{BA}_load_actuals_2017.h5
+        - Zone_level/{Zone}_load_actuals_2017.h5
 
 ## Data Format
 
 The data is provided in high density data file (.h5).
-
-## Python Examples
-
-Example scripts to extract solar resource data using python are provided below:
-
-## References
