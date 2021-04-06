@@ -91,6 +91,32 @@ Example scripts to extract wind resource data using python are provided below:
 The easiest way to access and extract data from the Resource eXtraction tool
 [`rex`](https://github.com/nrel/rex)
 
+To use `rex` with [`HSDS`](https://github.com/NREL/hsds-examples) you will need
+to install `h5pyd`:
+
+```
+pip install h5pyd
+```
+
+Next you'll need to configure HSDS:
+
+```
+hsconfigure
+```
+
+and enter at the prompt:
+
+```
+hs_endpoint = https://developer.nrel.gov/api/hsds
+hs_username = None
+hs_password = None
+hs_api_key = 3K3JQbjZmWctY0xmIfSYvYgtIcM3CN0cb1Y2w9bf
+```
+
+*The example API key here is for demonstation and is rate-limited per IP. To get your own API key, visit https://developer.nrel.gov/signup/*
+
+You can also add the above contents to a configuration file at `~/.hscfg`
+
 
 ```python
 from rex import ResourceX
