@@ -37,7 +37,7 @@ The following U.S. regions will be added to this dataset under the given
 `domain` names
 
 - West Coast United States: `West_Coast`
-- East Coast United States: TBD
+- East Coast United States: `Atlantic`
 - Alaskan Coast: TBD
 - Hawaiian Islands: `Hawaii`
 - Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands: TBD
