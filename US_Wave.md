@@ -37,7 +37,7 @@ The following U.S. regions will be added to this dataset under the given
 `domain` names
 
 - West Coast United States: `West_Coast`
-- East Coast United States: TBD
+- East Coast United States: `Atlantic`
 - Alaskan Coast: TBD
 - Hawaiian Islands: `Hawaii`
 - Gulf of Mexico, Puerto Rico, and U.S. Virgin Islands: TBD
@@ -67,11 +67,13 @@ DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 ## Directory structure
 
 High Resolution Ocean Surface Wave Hindcast data is made available as a series
-of hourly .h5 located on AWS S3:
+of 3 hourly .h5 files located on AWS S3 for the domains discussed above:
 - `s3://wpto-pds-US_wave/v1.0.0/${domain}`
 
+Hourly virtual bouy data is also available in hourly .h5 files on AWS S3:
+- `s3://wpto-pds-US_wave/v1.0.0/vitual_buoy/${domain}`
 
-The US wave data is also available via HSDS at `/nrel/US_wave`
+The US wave data is also available via HSDS at `/nrel/US_wave/`
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
 
 ## Data Format
