@@ -6,7 +6,7 @@ The National Renewable Energy Laboratory's (NREL) PV Rooftop Database (PVRDB) is
 
 The PVRDB is down-loadable by city and year of lidar collection. Five geospatial layers are available for each city and year: 1) the raster extent of the lidar collection, 2) buildings identified from the lidar data, 3) suitable developable planes for each building, 4) aspect values of the developable planes, and 5) the technical potential estimates of the developable planes.
 
-##Data Format
+## Data Format
 
 The PV Rooftops dataset is provided in Parquet format partitioned by city.  There are 4 core datasets stored in S3 partitioned by region(city)-year for downloads of single cities or to allow city-specific queries or queries across the dataset using Glue/Athena:
 
