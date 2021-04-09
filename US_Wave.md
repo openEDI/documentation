@@ -71,7 +71,7 @@ of 3 hourly .h5 files located on AWS S3 for the domains discussed above:
 - `s3://wpto-pds-US_wave/v1.0.0/${domain}`
 
 Hourly virtual bouy data is also available in hourly .h5 files on AWS S3:
-- `s3://wpto-pds-US_wave/v1.0.0/vitual_buoy/${domain}`
+- `s3://wpto-pds-US_wave/v1.0.0/virtual_buoy/${domain}`
 
 The US wave data is also available via HSDS at `/nrel/US_wave/`
 For examples on setting up and using HSDS please see our [examples repository](https://github.com/nrel/hsds-examples)
