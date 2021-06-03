@@ -136,23 +136,12 @@ conn = connect(
 
 Example #1: Querying with a limit:
 ```python
-df = pd.read_sql("SELECT * FROM oedi.pvrdb_pr_developable_planes limit 8;", conn)
-```
-
-Example #2: Querying for a specific county name:
-```python
-df = pd.read_sql("SELECT * FROM oedi.pvrdb_pr_developable_planes WHERE county = 'San Juan' limit 8;", conn)
-```
-
-Example #3: Querying for a specific county FIPS (FIPS=127):
-```python
-df = pd.read_sql("SELECT * FROM oedi.pvrdb_pr_developable_planes WHERE geoid LIKE '72127%' limit 8;", conn)
+df = pd.read_sql("SELECT * FROM oedi.<> limit 8;", conn)
 ```
 
 For jupyter notebook example see our notebook which includes partitions and data dictionary:
 [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
-## Related Links:
 
 ## Disclaimer and Attribution
 
