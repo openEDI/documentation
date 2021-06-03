@@ -1,15 +1,19 @@
-#  PV Time-Series Data from Array Installations on NREL Campus (PVDAQ) 
+#  Photovoltaic Field Array Time-Series (PVDAQ) 
 
 ## Description
 
-The data is a time-series of raw performance data taken through a variety of sensors connected to an array. The data is taken 15 sec averaged resolution and aggregated into the main data base every 24 hours. The data is automatically harvested and aggregated by loggers and various scripts over the course of the day.
+The Photovoltaic Field Array Time-Series (PVDAQ) data is a time-series of raw performance data taken through a variety of sensors connected to an array. The data is taken 15 sec averaged resolution and aggregated into the main data base every 24 hours. The data is automatically harvested and aggregated by loggers and various scripts over the course of the day. 
 
 We utilize the data to monitor existing systems for durability under a wide variety of conditions often cross-comparing performance between our test systems and other in the field. The data is used to help us develop and validate analysis tools to be used on other PV fleet systems globally.
 
 ## Data Dictionary
 
-measured_on\
-ac_meter_1_power_kw__1017\
+The PVDAQ data is partitioned by system_id, year, month and day. Raw data is reported at 15 minute increments in ISO 8601 date and time. The timestamp is striped and data is averaged daily. An example file output is included here.   
+
+Filename: system_1208__date_2012_03_11.csv
+
+measured_on\  date_time\
+ac_meter_1_power_kw__1017\ 
 ac_meter_2_power_kw__1018\
 ac_power_metered_1_2__1133\
 ac_power_metered_kw__1016\
@@ -26,23 +30,15 @@ inv2_dc_voltage__1024\
 inv2_temp__1026\
 system_id
 
+Note: not every site or system_id will contain data for each attribute included in the data dictionary.  
 
 ## Metadata
 
 The data is aggregated from multiple sensor systems. Metadata is exported from the main system as json, and converted into a json stcuture in Athena that can be joined by system_id, the metadata inlcudes:
 
 ```
-"System": {
-		"system_id":"", 
-		"site_id":"", 
-		"public_name":"", 
-		"area":"", 
-		"power":"", 
-		"started_on":"", 
-		"ended_on":"", 
-		"comments":""
-		}, 
-	"Site": {
+
+"Site": {
 		"site_id":"", 
 		"public_name":"", 
 		"location":"", 
@@ -53,6 +49,17 @@ The data is aggregated from multiple sensor systems. Metadata is exported from t
 		"av_temp":"", 
 		"av_pressure":""
 		}, 
+	"System": {
+		"system_id":"", 
+		"site_id":"", 
+		"public_name":"", 
+		"area":"", 
+		"power":"", 
+		"started_on":"", 
+		"ended_on":"", 
+		"comments":""
+		}, 
+
 	"Mount": {
 		"Mount 0": {
 			"mount_id":"", 
@@ -117,7 +124,6 @@ The PVDAQ Dataset is made available in CSV and Parquet format on AWS and is part
 
 [https://www.nrel.gov/docs/fy17osti/69131.pdf](https://www.nrel.gov/docs/fy17osti/69131.pdf)
 
-### Assumptions  
 
 ## Python Connection Examples
 
