@@ -1,24 +1,122 @@
-#  PV Durability and Relaibility Database (PVDAQ)
+#  PV Time-Series Data from Array Installations on NREL Campus (PVDAQ) 
 
 ## Description
 
-The PV Durability and Relaibility Database (PVDRDB) is built to support the aquisition and analysis of PV array time-series data. The database is built on the AWS RedShift framework. This framework is a hybrid of a PostgreSQL 8 deployment that has been converted to utilize columnar indexing. The database is deployed within the AWS Fedramp NREL cloud and is one piece of a systems that includes a series of tools to provide:
+The data is a time-series of raw performance data taken through a variety of sensors connected to an array. The data is taken 15 sec averaged resolution and aggregated into the main data base every 24 hours. The data is automatically harvested and aggregated by loggers and various scripts over the course of the day.
 
-    * Automated importing of field data
-    * API data harvesting for remote customers
-    * A series of S3 repositories for ingenstion and archiving of data
-    * Tools for direct access for data analysis
-    * A Web application to allow external collaborator access, public data access, and adding or modifiying new and exisitng PV systems.
+We utilize the data to monitor existing systems for durability under a wide variety of conditions often cross-comparing performance between our test systems and other in the field. The data is used to help us develop and validate analysis tools to be used on other PV fleet systems globally.
 
 ## Data Dictionary
 
-Column | Type | Description
+measured_on\
+ac_meter_1_power_kw__1017\
+ac_meter_2_power_kw__1018\
+ac_power_metered_1_2__1133\
+ac_power_metered_kw__1016\
+dc_power__1132\
+inv1_ac_power_kw__1019\
+inv1_dc_current__1021\
+inv1_dc_power__1130\
+inv1_dc_voltage__1020\
+inv1_temp__1022\
+inv2_ac_power_kw__1023\
+inv2_dc_current__1025\
+inv2_dc_power__1131\
+inv2_dc_voltage__1024\
+inv2_temp__1026\
+system_id
+
 
 ## Metadata
 
-## Methods and Assumptions
+The data is aggregated from multiple sensor systems. Metadata is exported from the main system as json, and converted into a json stcuture in Athena that can be joined by system_id, the metadata inlcudes:
+
+```
+"System": {
+		"system_id":"", 
+		"site_id":"", 
+		"public_name":"", 
+		"area":"", 
+		"power":"", 
+		"started_on":"", 
+		"ended_on":"", 
+		"comments":""
+		}, 
+	"Site": {
+		"site_id":"", 
+		"public_name":"", 
+		"location":"", 
+		"latitude":"", 
+		"longitude":"", 
+		"elevation":"", 
+		"climate_type":"", 
+		"av_temp":"", 
+		"av_pressure":""
+		}, 
+	"Mount": {
+		"Mount 0": {
+			"mount_id":"", 
+			"name":"", 
+			"manufacturer":"", 
+			"model":"", 
+			"tracking":"", 
+			"azimuth":"", 
+			"tilt":""
+			}
+		}, 
+	"Inverters": {
+		"Inverter 0": {
+			"inverter_id":"", 
+			"name":"", 
+			"manufacturer":"", 
+			"model":"", 
+			"type":"", 
+			"quantity": "", 
+			"serial_num": "", 
+			"comments": "", 
+			"time_interval": "", 
+			"modules_per_string": "", 
+			"num_strings": ""
+			}
+		}, 
+	"Modules": {
+		"Module 0": {
+			"module_id": "", 
+			"inverter_id": "", 
+			"name": "", 
+			"manufacturer": "", 
+			"model": "", 
+			"type": "", 
+			"quantity": "", 
+			"start_on": "", 
+			"end_on": "", 
+			"serial_num": "", 
+			"reference_module": "", 
+			"comments": ""
+			}
+		}, 
+	"Meters": {}, 
+	"Other Instruments": {}
+	}
+```
+
+## Data Format
+
+The PVDAQ Dataset is made available in CSV and Parquet format on AWS and is partitioned by `system_id`, `year`, `month`, `day` in AWS Glue and Athena. The schema may change across dataset years on S3.
+ - `s3://oedi-data-lake/pvdaq/`
+
+## Model, Methods or Assumptions
 
 ### Data Sources
+
+[https://www.nrel.gov/pv/real-time-photovoltaic-solar-resource-testing.html](https://www.nrel.gov/pv/real-time-photovoltaic-solar-resource-testing.html)
+
+[https://pvdata.duramat.org](https://pvdata.duramat.org)
+
+[https://www.nrel.gov/pv/rdtools.html](https://www.nrel.gov/pv/rdtools.html)
+
+[https://www.nrel.gov/docs/fy17osti/69131.pdf](https://www.nrel.gov/docs/fy17osti/69131.pdf)
+
 ### Assumptions  
 
 ## Python Connection Examples
