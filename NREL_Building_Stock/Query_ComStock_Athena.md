@@ -1,7 +1,9 @@
 # Running queries on ComStock using AWS Athena
 
-ComStock data can be accessed and downloaded using [AWS Athena](https://aws.amazon.com/athena/).
-Here we will show how to query the data for multiple building types, US regions, and upgrades.
+ComStock data can be accessed and downloaded using
+[AWS Athena](https://aws.amazon.com/athena/).
+Here we will show how to query the data for multiple building types,
+US regions, and upgrades.
 
 ## Requirements
 
@@ -9,12 +11,18 @@ An AWS account is necessary to run the code in this tutorial.
 
 ## Setting up AWS Athena with ComStock data for querying
 
-First of all, we need to log into AWS and go to [AWS Athena Console](https://console.aws.amazon.com/athena/home).
+First of all, we need to log into AWS and go to
+[AWS Athena Console](https://console.aws.amazon.com/athena/home).
 
-NOTE: To run these queries, go to the `Query Editor` tab of the Athena interface, copy and paste the query into the `New query` box, and click the `Run query` button.
+NOTE: To run these queries, go to the `Query Editor` tab of the Athena
+interface, copy and paste the query into the `New query` box, and click the
+`Run query` button.
 
 ### Setting up the database
-As a first step, we will create a database which the data we want to query will live in - if you already have a database you want to create the tables in, or are fine with the tables being created in a default database, skip this step.
+As a first step, we will create a database which the data we want to query
+will live in - if you already have a database you want to create the tables
+in, or are fine with the tables being created in a default database, skip
+this step.
 
 ```sql
 CREATE DATABASE comstock
@@ -22,9 +30,12 @@ CREATE DATABASE comstock
 
 ### Creating the metadata table
 Next we need to create the data tables that will be used to query the data.
-We will create two tables, one with building characteristics and annual energy data, and another with the time series energy data.
+We will create two tables, one with building characteristics and annual energy
+data, and another with the time series energy data.
 
-First we will create the metadata table, which will contain building characteristics and annual energy data. This is query should take less than 1 minute to run.
+First we will create the metadata table, which will contain building
+characteristics and annual energy data. This is query should take less than 1
+minute to run.
 
 In the SQL in the Athena `Query Editor` tab:
 
@@ -181,12 +192,16 @@ TBLPROPERTIES (
   'typeOfData'='file')
 ```
 
-The response from Athena when the command has successfully run should look like this:
+The response from Athena when the command has successfully run should look
+like this:
 ![CreateMetadata](https://github.com/NREL/ComStock/blob/cbianchi/documentation/documentation/Screen%20Shot%202021-04-15%20at%208.44.36%20PM.png?raw=true)
 
 ### Creating the time series table
 
-Next we will create the timeseries table. This query can take anywhere from 1 minute to approximately 14 hours to run, so we advise starting this before bed! The wide range depends on whether or not it has been run recently by someone else, in which case AWS appears to use a cache rather than redoing things.
+Next we will create the timeseries table. This query can take anywhere from 1
+minute to approximately 14 hours to run, so we advise starting this before bed!
+The wide range depends on whether or not it has been run recently by someone
+else, in which case AWS appears to use a cache rather than redoing things.
 
 ```sql
 CREATE EXTERNAL TABLE `comstock_v1_state`(
@@ -314,26 +329,32 @@ TBLPROPERTIES (
   'typeOfData'='file')
 ```
 
-You will likely be logged out of AWS while waiting for this to complete. To check on if the query has completed click on
-the **History** tab next in the Athena GUI and look for the query that begins `CREATE EXTERNAL TABLE comstock_v1_state(`
-\- when the query updates from running to completed you will know you are ready to proceed to the next step.
+You will likely be logged out of AWS while waiting for this to complete. To
+check on if the query has completed click on the **History** tab next in the
+Athena GUI and look for the query that begins
+`CREATE EXTERNAL TABLE comstock_v1_state(`
+\- when the query updates from running to completed you will know you are ready
+to proceed to the next step.
 
 ![CreateTable](https://github.com/NREL/ComStock/blob/cbianchi/documentation/documentation/Screen%20Shot%202021-04-15%20at%2011.03.03%20AM.png?raw=true)
 
 ### Establishing partitions on the time series table
 
-We use partitions to make our queries against the time series table quicker and more cost efficient. By splitting up the
-table by `state` and `upgrade` average query time decreases by ~48X and cost by even more. This works by having Athena
-mark which folders in S3 contain data relevant to each of the possible values for `state` or `upgrade`, and then only
-access those folders when the relevant value is requested. Guaranteeing that the partitions are all correctly
-instantiated one last query, which should take between one and four hours to complete:
+We use partitions to make our queries against the time series table quicker
+and more cost efficient. By splitting up the table by `state` and `upgrade`
+average query time decreases by ~48X and cost by even more. This works by
+having Athena mark which folders in S3 contain data relevant to each of the
+possible values for `state` or `upgrade`, and then only access those folders
+when the relevant value is requested. Guaranteeing that the partitions are all
+correctly instantiated one last query, which should take between one and four
+hours to complete:
 
 ```sql
 MSCK REPAIR TABLE comstock_v1_state
 ```
 
-Once again, you may need to use the **History** tab in the Athena GUI to check when this command completes.
-
+Once again, you may need to use the **History** tab in the Athena GUI to check
+when this command completes.
 
 ## Running queries against ComStock
 
@@ -341,9 +362,10 @@ Now that the tables have been created, we can query the data through Athena.
 
 ### Core example query
 
-Let's start with an example of a query that uses the metadata table and time series table to retrieve hourly data from a
-subset of the building simulations. In this example we'll get all available end-uses for a Medium Office in Wisconsin
-for the baseline case (no upgrade has been applied).
+Let's start with an example of a query that uses the metadata table and time
+series table to retrieve hourly data from a subset of the building simulations.
+In this example we'll get all available end-uses for a Medium Office in
+Wisconsin for the baseline case (no upgrade has been applied).
 
 ```sql
 SELECT
@@ -456,13 +478,15 @@ ORDER BY
 
 ![QuerySimple](https://github.com/NREL/ComStock/blob/cbianchi/documentation/documentation/Screen%20Shot%202021-04-15%20at%208.55.34%20PM.png?raw=true)
 
-To download the returned data as a CSV file click the file icon highlighted in red in the screenshot above.
+To download the returned data as a CSV file click the file icon highlighted in
+red in the screenshot above.
 
 Now let's demonstrate so ways of changing up the query:
 
 ### How to query data for other building types?
 
-All we have to do for this is change the following line in the `WHERE` clause in the example query:
+All we have to do for this is change the following line in the `WHERE` clause
+in the example query:
 
 ```sql
     AND "comstock_v1_metadata"."in.building_type" = 'MediumOffice'
@@ -474,18 +498,21 @@ Instead of 'MediumOffice' we can use one any of the following building types:
 
 ### How to query other states?
 
-All we have to do for this is change the following line in the `WHERE` clause in the example query:
+All we have to do for this is change the following line in the `WHERE` clause
+in the example query:
 
 ```sql
     AND "comstock_v1_state"."state" IN ('55')
 ```
 
-Instead of '55' (Wisconsin) we can use the FIPS code for another state, as listed here:
+Instead of '55' (Wisconsin) we can use the FIPS code for another state, as
+listed here:
 https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013696
 
 ### How to query an upgrade?
 
-All we have to do for this is change the following lines in the `WHERE` clause in the example query:
+All we have to do for this is change the following lines in the `WHERE` clause
+in the example query:
 
 ```sql
     AND "comstock_v1_state"."upgrade" = 0
@@ -579,7 +606,9 @@ Instead of '0' we can use one of the following options:
 
 ### How to change time resolution?
 
-1. For changing the resolution to 15 minutes, all we have to do is modifying the lines just before the `FROM` clause in the example query above as follows:
+1. For changing the resolution to 15 minutes, all we have to do is modifying
+   the lines just before the `FROM` clause in the example query above as
+   follows:
 
 ```sql
     month(
@@ -635,7 +664,8 @@ And finally in the `ORDER BY` clause:
     )
 ```
 
-2. For changing the resolution to 1 day, all we have to do is modifying the lines just before the `FROM` clause in the example query above as follows:
+2. For changing the resolution to 1 day, all we have to do is modifying the
+   lines just before the `FROM` clause in the example query above as follows:
 
 ```sql
     month(
@@ -673,7 +703,8 @@ And finally in the `ORDER BY` clause:
     )
 ```
 
-3. For changing the resolution to 1 month, all we have to do is modifying the lines just before the `FROM` clause in the example query above as follows:
+3. For changing the resolution to 1 month, all we have to do is modifying the
+   lines just before the `FROM` clause in the example query above as follows:
 
 ```sql
     month(
@@ -704,7 +735,8 @@ And finally in the `ORDER BY` clause:
 
 ### How to average data rather than sums?
 
-All we have to do for this is change the modify part in everythome it appears in the `SELECT` clause:
+All we have to do for this is change the modify part in everythome it appears
+in the `SELECT` clause:
 
 ```sql
     sum(
@@ -715,10 +747,10 @@ It has to be changed with:
     avg(
 ```
 
-
 ### How to preview the table to see all available columns?
 
-All we have to do for this is change the whole the example query above with what follows:
+All we have to do for this is change the whole the example query above with
+what follows:
 
 ```sql
     SELECT *
@@ -734,22 +766,21 @@ All we have to do for this is change the whole the example query above with what
     limit 10
 ```
 
-
 # From here on follow the example above:
 
-
-In each case say which block of code we're doing the update in - i.e. the group / order by clause or the where clause
+In each case say which block of code we're doing the update in - i.e. the
+group / order by clause or the where clause
 
 things to include:
 
-
 - How to filter by another variable - i.e. sqft or hvac system type
-- How to get all the allowable values for a metadata filter (using select unique(col) from comstock_metadata_v0)
-
+- How to get all the allowable values for a metadata filter (using select
+  unique(col) from comstock_metadata_v0)
 
 DONE
 - How to query multiple states / building types
 - How to query an upgrade
 - How to change resolution - give changes for 15 min, daily, and monthly
 - How to get average instead of sum by altering the select clauses
-- How to preview the table to see what columns are available using select * from blah limit 10
+- How to preview the table to see what columns are available using select *
+  from blah limit 10
