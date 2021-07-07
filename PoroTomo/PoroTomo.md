@@ -1,11 +1,12 @@
 # PoroTomo
 
-The data were collected during March 2016 at the PoroTomo Natural Laboratory in Brady's Hot 
-Springs, Nevada. 
+The data were collected during March 2016 at the PoroTomo Natural Laboratory
+in Brady's Hot Springs, Nevada.
 
-Silixa’s iDAS (TM) was used for DAS data acquisition with 1.021 m channel spacing and a
-guage length of 10 m. Data in this archive are in .sgy and .h5 files with raw
-units (radians of optical phase change per time sample) (Miller, et al.).
+Silixa’s iDAS (TM) was used for DAS data acquisition with 1.021 m channel
+spacing and a guage length of 10 m. Data in this archive are in .sgy and .h5
+files with raw units (radians of optical phase change per time sample)
+(Miller, et al.).
 
 The files in this dataset use SEG-y-rev1 (see below for documentation). The
 data are also available in .h5 or HDF5 file format.
@@ -15,19 +16,25 @@ again on 3/11/2016 and ended 3/26/2016 using zigzag trenched fiber optic
 cabels. Vertical DAS (DASV) data collection began 3/17/2016 and ended 3/28/2016
 using a fiber optic cable through the first 363 m of a vertical well.
 
-The resampled DASH data are Matlab files	with	data	for	the	surface	DAS	(DASH) array	deployed	at	the	
-PoroTomo	natural	laboratory	in	March	2016.	Each	file	contains	30	seconds	worth	of	data	
-for	8721	channels.	These	files	have	been	resampled	in	time	from	the	original	data	and	have	
-a	sample	rate	of	100	samples/second.
+The resampled DASH data are Matlab files with data for the surface DAS (DASH)
+array deployed at the PoroTomo natural laboratory in March 2016. Each file
+contains 30	seconds	worth of data for 8721	channels. These	files have been
+resampled in time from the original data and have a sample rate of 100
+samples/second.
 
-The nodal seismometer data consists of continuous and windowed (to vibroseis sweep) SAC files. Nodal data collection began between 3/6/2016 and 3/11/2016 depending on the station, and ended between 3/26/2016 and 3/28/2016 also depending on the station. Station names, locations, start times, stop times, and orientations can be found in the nodal seismometer metadata linked below.
+The nodal seismometer data consists of continuous and windowed
+(to vibroseis sweep) SAC files. Nodal data collection began between 3/6/2016
+and 3/11/2016 depending on the station, and ended between 3/26/2016 and
+3/28/2016 also depending on the station. Station names, locations, start times,
+stop times, and orientations can be found in the nodal seismometer metadata
+linked below.
 
 ## DAS
 
 ### Directory structure
 
-The PoroTomo DAS data is available on AWS S3: s3://nrel-pds-porotomo/DAS/. The data is
-available in three formats:
+The PoroTomo DAS data is available on AWS S3: s3://nrel-pds-porotomo/DAS/.
+The data is available in three formats:
 
 #### SEG-Y Format:
 
@@ -98,13 +105,15 @@ The following datasets are available in HDF5 and HSDS files:
 
 ### Directory Structure
 
-The PoroTomo Nodal Seismometer data is available on AWS S3: s3://nrel-pds-porotomo/Nodal/. 
+The PoroTomo Nodal Seismometer data is available on AWS S3:
+s3://nrel-pds-porotomo/Nodal/.
 The following data and metadata are available:
 
 #### Continuous Data
 
-SAC files of the continuous raw data from the nodal seismometers. Data files sorted into 
-folders by seismometer station number. Note: no data recovered from stations 73 and 82.
+SAC files of the continuous raw data from the nodal seismometers. Data files
+sorted into folders by seismometer station number. Note: no data recovered
+from stations 73 and 82.
 
 s3://nrel-pds-porotomo/Nodal/nodal_sac:
 - size: 45-173 MB
@@ -112,26 +121,28 @@ s3://nrel-pds-porotomo/Nodal/nodal_sac:
 
 #### Field Notes and Metadata
 
-PDF scans of field notes and metadata for nodal seismometers including instrument 
-installation and recovery.
+PDF scans of field notes and metadata for nodal seismometers including
+instrument installation and recovery.
 
 s3://nrel-pds-porotomo/Nodal/nodal_metadata:
 - size: 1.3-15.5 MB
 
 #### P-Picks
 
-P-wave travel times auto-picked from cross-correlation waveforms. The files list the 
-source time and location for a vibe sweep stack followed by the travel time to each nodal 
-instrument and two means of pick quality assessment. See README.txt for details.
+P-wave travel times auto-picked from cross-correlation waveforms. The files
+list the source time and location for a vibe sweep stack followed by the travel
+time to each nodal instrument and two means of pick quality assessment. See
+README.txt for details.
 
 s3://nrel-pds-porotomo/Nodal/nodal_analysis/p_picks:
 - size: 1.3-1.4 MB
 
 #### Sweep Data
 
-29.8 second long SAC files of the raw nodal seismometer data starting 3.9 seconds before the 
-initiation of each vibroseis sweep extracted from continuous 24 hour files. Data files sorted 
-into folders by sweep number (see GDR Submission 826).
+29.8 second long SAC files of the raw nodal seismometer data starting 3.9
+seconds before the initiation of each vibroseis sweep extracted from continuous
+24 hour files. Data files sorted into folders by sweep number
+(see GDR Submission 826).
 
 s3://nrel-pds-porotomo/Nodal/nodal_sac_sweep:
 - size: 58.8 kB
