@@ -1,4 +1,3 @@
-=======
 # Annual Technology Baseline (ATB)
 
 ## Description
@@ -24,17 +23,9 @@ See [technical limitations on the ATB website](https://atb.nrel.gov/electricity/
 
 The CSV files summarize in database-friendly form the capital expenditures, operations expenditures, and capacity factor, as well as the financial assumptions and the levelized cost of energy, for each technology. They are reformatted from the summary section of the spreadsheet, which documents the underlying calculations and data. The same data is also available in the Apache Parquet format.
 
-The files are stored by year and are located here:
-- `s3://oedi-data-lake/ATB/electricity`
+The files are stored by type and then by year. The types are parquet and csv, and the years are 2019, 2020 and 2021. The files can be accessed with teh ARN in S3, or in the [bucket viewer](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=ATB%2F).
 
-  /csv
-    /2019
-    /2020
-    /2021
-  /parquet
-    /2019 
-    /2020
-    /2021
+- `s3://oedi-data-lake/ATB/electricity`
 
 ## Vintage
 
