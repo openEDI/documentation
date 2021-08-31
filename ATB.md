@@ -23,7 +23,7 @@ See [technical limitations on the ATB website](https://atb.nrel.gov/electricity/
 
 The CSV files summarize in database-friendly form the capital expenditures, operations expenditures, and capacity factor, as well as the financial assumptions and the levelized cost of energy, for each technology. They are reformatted from the summary section of the spreadsheet, which documents the underlying calculations and data. The same data is also available in the Apache Parquet format.
 
-The files are stored by type and then by year. The types are parquet and csv, and the years are 2019, 2020 and 2021. The files can be accessed with teh ARN in S3, or in the [bucket viewer](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=ATB%2F).
+The files are stored by type and then by year. The file types are parquet and csv. The files can be accessed in the [Department of Energy's Open Energy Data Initiative (OEDI) in the Registry of Open Data on AWS](https://registry.opendata.aws/oedi-data-lake/), or in the [bucket viewer](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=ATB%2F).
 
 - `s3://oedi-data-lake/ATB/electricity`
 
@@ -35,7 +35,7 @@ The current year data can be found at [https://atb.nrel.gov/data](https://atb.nr
 
 ## Data Format
 
-The data is provided in CSV and Apache Parquet format. The data structure is as follows:
+The most recent annual data is provided in CSV and Apache Parquet format. The data structure is as follows:
 
 Column | Type | Description
 -- | -- | --
