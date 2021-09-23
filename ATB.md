@@ -29,9 +29,9 @@ The files are stored by type and then by year. The file types are parquet and cs
 
 ## Vintage
 
-Annual data for 2015 through the previous year can be found at [https://atb.nrel.gov/archive](https://atb.nrel.gov/archive) 
+Annual data for 2015 through the previous year can be found at [https://atb.nrel.gov/archive](https://atb.nrel.gov/archive)
 
-The current year data can be found at [https://atb.nrel.gov/data](https://atb.nrel.gov/data) 
+The current year data can be found at [https://atb.nrel.gov/data](https://atb.nrel.gov/data)
 
 ## Data Format
 
@@ -40,7 +40,7 @@ The most recent annual data is provided in CSV and Apache Parquet format. The da
 Column | Type | Description
 -- | -- | --
   `revision` | bigint | database revision      
-  `atb_year` | bigint | year of ATB publication 
+  `atb_year` | bigint | year of ATB publication
   `core_metric_key` | string | concatenated unique key  
   `core_metric_parameter` | string | technology and cost performance parameters  
   `core_metric_case` | string | financial case (R&D or Market)
@@ -48,9 +48,9 @@ Column | Type | Description
   `technology` | string | technology
   `techdetail` | string | technology specific classifications and sub-groups   
   `scenario` | string | moderate, conservative and advanced
-  `core_metric_variable`| string | projected year 
+  `core_metric_variable`| string | projected year
   `units` | string | units
-  `value` | double | value 
+  `value` | double | value
 
 ## Python Examples
 
@@ -65,7 +65,7 @@ conn = connect(
     work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
 )
 
-df = pd.read_sql("SELECT distinct technology, techdetail FROM oedi-data-lake. limit 8;",conn)
+df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2021 where techdetail <> '*' order by technology, techdetail;",conn)
 ```
 
 For jupyter notebook example see our notebook which includes partitions and data dictionary: [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
