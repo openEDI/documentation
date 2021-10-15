@@ -112,15 +112,33 @@ The data is aggregated from multiple sensor systems. Metadata is exported from t
 The PVDAQ Dataset is made available in CSV and Parquet format on AWS and is partitioned by `system_id`, `year`, `month`, `day` in AWS Glue and Athena. The schema may change across dataset years on S3.
  - `s3://oedi-data-lake/pvdaq/`
 
-## Model, Methods or Assumptions
+## Model, Methods, and Analysis Tools
 
-### Data Sources
+#### Rd Tools<br/>
+RdTools is an open-source library to support reproducible technical analysis of time series data from photovoltaic energy systems, particularly degredation effects.<br/>
+[Rd Tools](https://www.nrel.gov/pv/rdtools.html)
+
+#### PV Lib
+A toolbox provides a set of well-documented functions for simulating the performance of photovoltaic energy systems.<br/>
+[pv_lib-toolbox](https://pvpmc.sandia.gov/applications/pv_lib-toolbox/)
+
+### Other Data Sources
+
+#### DuraMAT
+A multi-institution consortium focused on discovery, development, de-risking, and enabling the commercialization of new materials and designs for PV modules.<br/>
+[Main Site](https://www.duramat.org/) <br/>
+
+* [Validation models for PV performance](https://datahub.duramat.org/dataset/data-for-validating-models-for-pv-module-performance/)
+* Machine Learning training set for validation of [satellite imagery of PV Array sites](https://datahub.duramat.org/dataset/satellite-images-training-and-validation-set)
+* Machine Learning training set for [Detection of Inverter Clipping - Real Data](https://datahub.duramat.org/dataset/inverter-clipping-ml-training-set-real-data)
+* Machine Learning training set for [Detection of Inverter Clipping - Simulated Data](https://datahub.duramat.org/dataset/inverter-clipping-ml-training-set-simulated-data) 
+* Machine learning training set for [ Detection of soiling cleaning events](https://datahub.duramat.org/dataset/automated-pv-systems-cleaning-and-detection)
+* Example data of [Soiling signal in time-series data](https://datahub.duramat.org/dataset/pvdaq-time-series-with-soiling-signal)
+* Spectral Irradiance Data Sets [Albuqueque](https://datahub.duramat.org/project/spectral-irradiance-data-and-resources)
+
+### Addtional Resources
 
 [https://www.nrel.gov/pv/real-time-photovoltaic-solar-resource-testing.html](https://www.nrel.gov/pv/real-time-photovoltaic-solar-resource-testing.html)
-
-[https://pvdata.duramat.org](https://pvdata.duramat.org)
-
-[https://www.nrel.gov/pv/rdtools.html](https://www.nrel.gov/pv/rdtools.html)
 
 [https://www.nrel.gov/docs/fy17osti/69131.pdf](https://www.nrel.gov/docs/fy17osti/69131.pdf)
 
