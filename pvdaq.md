@@ -2,9 +2,9 @@
 
 ## Description
 
-The Photovoltaic Field Array Time-Series (PVDAQ) data is a time-series of raw performance data taken through a variety of sensors connected to an array. The data is taken 15 sec averaged resolution and aggregated into the main data base every 24 hours. The data is automatically harvested and aggregated by loggers and various scripts over the course of the day.
+The Photovoltaic field array (PVDAQ) data is composed of time-series, raw performance data taken through a variety of sensors connected to a PV array. The data is typically taken at 15 sec averaged resolution, but can vary between systems. NREL source data is typically aggregated into the main database every 24 hours. Data is then processed to the NREL PVDAQ data lake on a monthly basis.
 
-We utilize the data to monitor existing systems for durability under a wide variety of conditions often cross-comparing performance between our test systems and other in the field. The data is used to help us develop and validate analysis tools to be used on other PV fleet systems globally.
+Our researchers utilize the data to monitor the durability of PV systems under a wide variety of conditions. Similar data within NREL archives also provides insites into experimental emerging technology systems. Addtionally, the data has proven useful in assisting in the development of data quality assurance software, and data analysis and machine learning tools.
 
 ## Data Dictionary
 
@@ -180,7 +180,10 @@ RdTools is an open-source library to support reproducible technical analysis of 
 #### PV Lib
 A toolbox provides a set of well-documented functions for simulating the performance of photovoltaic energy systems.<br/>
 [pv_lib-toolbox](https://pvpmc.sandia.gov/applications/pv_lib-toolbox/)
-
+ 
+#### PVAnalytics
+PVAnalytics is a python library that supports analytics for PV systems. It provides functions for quality control, filtering, and feature labeling and other tools supporting the analysis of PV system-level data.
+[PV_Analytics[(https://github.com/pvlib/pvanalytics)
 ### Other Data Sources
 
 #### DuraMAT
