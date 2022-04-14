@@ -68,7 +68,7 @@ conn = connect(
 df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2021 where techdetail <> '*' order by technology, techdetail;",conn)
 ```
 
-For jupyter notebook example see our notebook which includes partitions and data dictionary: [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
+OEDI has created a set of tools to facilitate access to open energy data sets, including ATB. Please visit the [open-data-access-tools documentation page](https://openedi.github.io/open-data-access-tools/) for more info. You can find jupyter notebook examples that show how to use the tools in our [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
 ## References
 
