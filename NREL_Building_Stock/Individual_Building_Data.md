@@ -67,3 +67,5 @@ s3://nrel-pds-building-stock/comstock/athena/2020/comstock_v1/state/upgrade=0/st
 The files can be downloaded programatically using a Python library such as
 [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html),
 or by using a similar library in another programming language.
+
+OEDI has created a set of tools to facilitate access to open energy data sets, including ComStock. Please visit the [open-data-access-tools documentation page](https://openedi.github.io/open-data-access-tools/) for more info. You can find jupyter notebook examples that show how to use the tools in our [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples).

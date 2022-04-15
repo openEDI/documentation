@@ -148,6 +148,10 @@ The PVDAQ data is partitioned by system_id, year, month and day. Raw data is rep
 
 Note: not every site or system_id will contain data for each attribute included in the data dictionary.  
 
+## Data Access
+
+OEDI has created a set of tools to facilitate access to open energy data sets, including PVDAQ. Please visit the [open-data-access-tools documentation page](https://openedi.github.io/open-data-access-tools/) for more info. You can find jupyter notebook examples that show how to use the tools in our [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
+
 ## Data Format
 
 The PVDAQ Dataset is made available in Parquet format on AWS and is partitioned by `year`, `month`, `day` in AWS Glue and Athena. The schema may change across dataset years on S3.
