@@ -1,4 +1,4 @@
-# University of Miami Coupled Model (UMCM) for Hurricane Ike and Sandy
+# University of Miami Coupled Model (UMCM) for Hurricanes Ike and Sandy
 
 ## Model
 
@@ -107,5 +107,5 @@ Additional locational meta data is available in the `meta` table.
 
 ## References
 
-Users of the UMCM model should use the following citations:
-- [E. Kim, L. Manuel, M. Curcic, S. S. Chen, C. Phillips, P. Veers, 2016, On the Use of Coupled Wind, Wave, and Current Fields in the Simulation of Loads on BottomSupported Offshore Wind Turbines during Hurricanes (Technical Report, NREL/TP-5000-65283), Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy16osti/65283.pdf)
+Users of the UMCM model should use the following citation:
+[Phillipes, Caleb, Veers, Paul, Kim, Eungsoo, Manuel, Lance, Curcic, Milan, and Chen, Shuyi. University of Miami Coupled Model (UMCM) for Hurricanes Ike and Sandy. United States: N.p., 30 Sep, 2015. Web. https://data.openei.org/submissions/574.](https://data.openei.org/submissions/574)
