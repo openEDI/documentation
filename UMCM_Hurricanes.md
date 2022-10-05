@@ -108,4 +108,4 @@ Additional locational meta data is available in the `meta` table.
 ## References
 
 Users of the UMCM model should use the following citation:
-[Phillipes, Caleb, Veers, Paul, Kim, Eungsoo, Manuel, Lance, Curcic, Milan, and Chen, Shuyi. University of Miami Coupled Model (UMCM) for Hurricanes Ike and Sandy. United States: N.p., 30 Sep, 2015. Web. https://data.openei.org/submissions/574.](https://data.openei.org/submissions/574)
+- [Phillipes, Caleb, Veers, Paul, Kim, Eungsoo, Manuel, Lance, Curcic, Milan, and Chen, Shuyi. University of Miami Coupled Model (UMCM) for Hurricanes Ike and Sandy. United States: N.p., 30 Sep, 2015. Web. https://data.openei.org/submissions/574.](https://data.openei.org/submissions/574)
