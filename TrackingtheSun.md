@@ -8,7 +8,7 @@ The trends described in this report derive primarily from project-level data rep
 
 A technical summary of the dataset is as follows:
 
-Focuses on projects installed through 2018 with preliminary data for the first half of 2019:
+Focuses on projects installed through 2018 with preliminary data for the first half of 2022:
 - Describes and analyzes trends related to Project characteristics, including system size and design, ownership, customer segmentation, and other attributes
 - National median installed prices, both long-term and recent trends, focusing on host-owned systems
 - Variability in pricing across projects according to system size, state, installer, module efficiency, inverter technology, residential new construction vs. retrofit, tax-exempt vs. commercial site hosts, and mounting configuration
@@ -51,7 +51,11 @@ Installed-Price Sample: (Used in analysis of installed prices)
 
 The Tracking the Sun Dataset is made available in Parquet format on AWS and is partitioned by `state` in AWS Glue and Athena. The schema may change across dataset years on S3.
 
+ - `s3://oedi-data-lake/tracking-the-sun/2018/`
  - `s3://oedi-data-lake/tracking-the-sun/2019/`
+ - `s3://oedi-data-lake/tracking-the-sun/2020/`
+ - `s3://oedi-data-lake/tracking-the-sun/2021/`
+ - `s3://oedi-data-lake/tracking-the-sun/2022/`
 
 ## python Connection examples
 
@@ -71,98 +75,11 @@ df = pd.read_sql("SELECT * FROM oedi_tracking_the_sun_2019 limit 8;", conn)
 For jupyter notebook example see our notebook which includes partitions and data dictionary:
 [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
 
-## Data Dictionary for 2019 Dataset:
+## Metadata Information
 
-    Available States
-    1. AR
-    2. AZ
-    3. CA
-    4. CO
-    5. CT
-    6. DC
-    7. DE
-    8. FL
-    9. IL
-    10. KS
-    11. MA
-    12. MD
-    13. ME
-    14. MN
-    15. MO
-    16. NH
-    17. NJ
-    18. NM
-    19. NY
-    20. OH
-    21. OR
-    22. PA
-    23. RI
-    24. TX
-    25. UT
-    26. VT
-    27. WI
-    28. WA
+The dataset is partitioned by the US State.
 
-  `data_provider`       	string\
-  `system_id_from_first_data_provider`	string\
-  `system_id_from_second_data_provider_if_applicable`	string\
-  `system_id_tracking_the_sun`	string\
-  `installation_date`   	date\
-  `system_size`         	double\
-  `total_installed_price`	double\
-  `appraised_value_flag`	boolean\
-  `sales_tax_cost`      	double\
-  `rebate_or_grant`     	double\
-  `performance_based_incentive_annual_payment`	double\
-  `performance_based_incentives_duration`	int\
-  `feed_in_tariff_annual_payment`	double\
-  `feed_in_tariff_duration`	int\
-  `customer_segment`    	string\
-  `new_construction`    	int\
-  `tracking`            	int\
-  `ground_mounted`      	int\
-  `battery_system`      	int\
-  `zip_code`            	string\
-  `city`                	string\
-  `utility_service_territory`	string\
-  `third_party_owned`   	int\
-  `installer_name`      	string\
-  `self_installed`      	int\
-  `azimuth_1`           	double\
-  `azimuth_2`           	double\
-  `azimuth_3`           	double\
-  `tilt_1`              	double\
-  `tilt_2`              	double\
-  `tilt_3`              	double\
-  `module_manufacturer_1`	string\
-  `module_model_1`      	string\
-  `module_manufacturer_2`	string\
-  `module_model_2`      	string\
-  `module_manufacturer_3`	string\
-  `module_model_3`      	string\
-  `additional_module_model`	int\
-  `module_technology_1` 	string\
-  `module_technology_2` 	string\
-  `module_technology_3` 	string\
-  `bipv_module_1`       	int\
-  `bipv_module_2`       	int\
-  `bipv_module_3`       	int\
-  `module_efficiency_1` 	double\
-  `module_efficiency_2` 	double\
-  `module_efficiency_3` 	double\
-  `inverter_manufacturer_1`	string\
-  `inverter_manufacturer_2`	string\
-  `inverter_manufacturer_3`	string\
-  `inverter_model_1`    	string\
-  `inverter_model_2`    	string\
-  `inverter_model_3`    	string\
-  `microinverter_1`     	int\
-  `microinverter_2`     	int\
-  `microinverter_3`     	int\
-  `system_inverter_capacity`	double\
-  `dc_optimizer`        	int\
-  `inverter_loading_ratio`	double\
-  `state`               	string\
+Please refer to this repository for examples of metadata and data access - https://github.com/openEDI/open-data-access-tools/tree/master/examples
 
 ## References
 
