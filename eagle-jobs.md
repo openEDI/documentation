@@ -6,7 +6,9 @@ HPC dataset with 11M+ jobs from NREL's Eagle supercomputer. These jobs were subm
 
 ## Data
 
-This repository contains a single large file: eagle_data.parquet, which uses parquet, a column-oriented data file format with compression.
+The data is available through OEDI: [https://data.openei.org/submissions/5860](https://data.openei.org/submissions/5860).
+
+This link points to a repository that contains a single large file: `eagle_data.parquet`, which uses parquet, a column-oriented data file format with compression.
 
 ## References
 
