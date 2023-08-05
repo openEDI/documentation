@@ -22,6 +22,26 @@ The data set might be used, for example, to verify simulations or for comparison
 If the dataset is made up of multiple files a description of how they are/will
 be stored in relation to each other.
 
+The directory structure is:
+
+NSO/
+ {}/                       data set type: inflow_mast, wake_masts, loads, lidar
+  resolution={}/           20Hz or 1min
+   year={}/                year
+    month={}/              month
+     day={}/               day
+
+
+The structure of the filenames is:
+
+Type_resolution_YYYY-MM-DD_0h_to_YYYY-MM-DD_0h.parquet
+YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC
+Type: Inflow_mast, Wake_masts, Loads or Lidar
+resolution: 1min or 20Hz
+
+
+Example:
+NSO/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet
 
 
 ## Data Format
