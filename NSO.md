@@ -24,20 +24,20 @@ be stored in relation to each other.
 
 The directory structure is:
 
-NSO/
- {}/                       data set type: inflow_mast, wake_masts, loads, lidar
-  resolution={}/           20Hz or 1min
-   year={}/                year
-    month={}/              month
-     day={}/               day
+NSO/  <br>
+ {}/                       data set type: inflow_mast, wake_masts, loads, lidar  <br>
+  resolution={}/           20Hz or 1min  <br>
+   year={}/                year  <br>
+    month={}/              month  <br>
+     day={}/               day  <br>
 
 
 The structure of the filenames is:
 
-Type_resolution_YYYY-MM-DD_0h_to_YYYY-MM-DD_0h.parquet
-YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC
-Type: Inflow_mast, Wake_masts, Loads or Lidar
-resolution: 1min or 20Hz
+Type_resolution_YYYY-MM-DD_0h_to_YYYY-MM-DD_0h.parquet  <br>
+YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC  <br>
+Type: Inflow_mast, Wake_masts, Loads or Lidar  <br>
+resolution: 1min or 20Hz  <br>
 
 
 Example:
