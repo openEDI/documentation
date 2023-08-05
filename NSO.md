@@ -25,11 +25,11 @@ be stored in relation to each other.
 The directory structure is:
 
 NSO/  <br>
- {}/                       data set type: inflow_mast, wake_masts, loads, lidar  <br>
-  resolution={}/           20Hz or 1min  <br>
-   year={}/                year  <br>
-    month={}/              month  <br>
-     day={}/               day  <br>
+&nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: inflow_mast, wake_masts, loads, lidar  <br>
+&nbsp;&nbsp;  resolution={}/    &emsp;        20Hz or 1min  <br>
+&nbsp;&nbsp;&nbsp;   year={}/     &emsp;    &emsp;  &emsp;        year  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    month={}/     &emsp;   &emsp;        month  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     day={}/   &emsp;    &emsp;   &emsp;        day  <br>
 
 
 The structure of the filenames is:
