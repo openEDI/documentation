@@ -25,7 +25,7 @@ be stored in relation to each other.
 The directory structure is:
 
 NSO/  <br>
-&nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: inflow_mast, wake_masts, loads, lidar  <br>
+&nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: met_masts/inflow_mast, met_masts/wake_masts, loads, lidar  <br>
 &nbsp;&nbsp;  resolution={}/    &emsp;        20Hz or 1min  <br>
 &nbsp;&nbsp;&nbsp;   year={}/     &emsp;    &emsp;  &emsp;        year  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;    month={}/     &emsp;   &emsp;        month  <br>
