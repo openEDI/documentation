@@ -41,7 +41,7 @@ resolution: 1min or 20Hz  <br>
 
 
 Example:
-NSO/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet
+NSO/met_masts/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_Mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet
 
 
 ## Data Format
