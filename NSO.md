@@ -56,13 +56,11 @@ Data are in the Parquet file format. The variables and units in each dataset are
 
 ## Code Examples
 
-Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or
+# Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or
 link to a github repo with examples can be used instead.
+
+Example Python scripts to read the data are provided at the OEDI data lake.
 
 ## References
 
-Reference to the Nature Scientific Data paper.
-
-## Disclaimer and Attribution
-
-Optional additional attributes/disclaimers
+[1] Reference to the Nature Scientific Data paper (to be added after publication).
