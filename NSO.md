@@ -48,16 +48,15 @@ NSO/lidar/resolution=2s/year=2023/month=04/day=02/Lidar_2023-04-02_19-00-17_to_2
 
 ## Data Format
 
-How the data is stored with in each file including a data dictionary with
-- dataset/variable/column names
-- units
+# How the data is stored with in each file including a data dictionary with
+# - dataset/variable/column names
+# - units
 
-Data are in the Parquet file format. The variables and units in each dataset are listed in (link to data paper).
+Data are stored in the Parquet file format. The variables and units in each dataset are listed in [1].
 
 ## Code Examples
 
-# Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or
-link to a github repo with examples can be used instead.
+# Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or link to a github repo with examples can be used instead.
 
 Example Python scripts to read the data are provided at the OEDI data lake.
 
