@@ -40,8 +40,10 @@ Type: Inflow_mast, Wake_masts, Loads or Lidar  <br>
 resolution: 1min or 20Hz  <br>
 
 
-Example:
-NSO/met_masts/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_Mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet
+Examples:
+
+NSO/met_masts/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_Mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet<br>
+NSO/lidar/resolution=2s/year=2023/month=04/day=02/Lidar_2023-04-02_19-00-17_to_2023-04-02_19-00-17.parquet
 
 
 ## Data Format
