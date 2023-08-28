@@ -62,4 +62,4 @@ Example Python scripts to read the data are provided at the OEDI data lake.
 
 ## References
 
-[1] Reference to the Nature Scientific Data paper (to be added after publication).
+[1] Reference to a data paper describing the data set (to be added after publication).
