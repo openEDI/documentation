@@ -56,7 +56,7 @@ Data are stored in the Parquet file format. The variables and units in each data
 
 ## Code Examples
 
-# Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or link to a github repo with examples can be used instead.
+<!-- Example scripts of how to access the data IN THE CLOUD. A jupyter notebook or link to a github repo with examples can be used instead. -->
 
 Example Python scripts to read the data are provided at the OEDI data lake.
 
