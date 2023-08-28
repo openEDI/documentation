@@ -48,9 +48,9 @@ NSO/lidar/resolution=2s/year=2023/month=04/day=02/Lidar_2023-04-02_19-00-17_to_2
 
 ## Data Format
 
-# How the data is stored with in each file including a data dictionary with
-# - dataset/variable/column names
-# - units
+<!--   How the data is stored with in each file including a data dictionary with
+ - dataset/variable/column names
+ - units -->
 
 Data are stored in the Parquet file format. The variables and units in each dataset are listed in [1].
 
