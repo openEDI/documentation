@@ -2,10 +2,10 @@
 
 ## Description
 
-A brief description of the data including:
+<!--  A brief description of the data including:
 - how it was produced?
 - why it important/novel
-- who/how it might be used
+- who/how it might be used -->
 
 This data set characterizes the complex wind conditions and resulting structural loads on full-scale, operational parabolic trough collectors.
 Over two years, NREL conducted comprehensive field measurements of the atmospheric turbulent wind conditions and the resulting structural wind loads on the parabolic troughs at the Nevada Solar One plant. The measurement set-up included of meteorological masts and structural load sensors on four trough rows.
@@ -19,8 +19,8 @@ The data set might be used, for example, to verify simulations or for comparison
 
 ## Directory structure
 
-If the dataset is made up of multiple files a description of how they are/will
-be stored in relation to each other.
+<!--  If the dataset is made up of multiple files a description of how they are/will
+be stored in relation to each other. -->
 
 The directory structure is:
 
