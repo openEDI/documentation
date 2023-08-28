@@ -35,7 +35,7 @@ NSO/  <br>
 The structure of the filenames is:
 
 Type_resolution_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet  <br>
-YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC  (lidar data also contains hour and minute)<br>
+YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC  (lidar data contain one scan and the file name also contains hour and minute)<br>
 Type: Inflow_mast, Wake_masts, Loads or Lidar  <br>
 resolution: 1min or 20Hz  <br>
 
