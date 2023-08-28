@@ -26,7 +26,7 @@ The directory structure is:
 
 NSO/  <br>
 &nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: met_masts/inflow_mast, met_masts/wake_masts, loads, lidar  <br>
-&nbsp;&nbsp;  resolution={}/    &emsp;        20Hz or 1min  <br>
+&nbsp;&nbsp;  resolution={}/    &emsp;        20Hz or 1min  (10min or 2s for lidar) <br>
 &nbsp;&nbsp;&nbsp;   year={}/     &emsp;    &emsp;  &emsp;        year  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;    month={}/     &emsp;   &emsp;        month  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     day={}/   &emsp;    &emsp;   &emsp;        day  <br>
