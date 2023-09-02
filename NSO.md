@@ -25,8 +25,7 @@ be stored in relation to each other. -->
 The directory structure is:
 
 NSO/  <br>
-&nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: met_masts/inflow_mast, met_masts/wake_masts, loads, lidar  <br>
-&nbsp;&nbsp;  resolution={}/    &emsp;        20Hz or 1min  (10min or 2s for lidar) <br>
+&nbsp; {}/   &emsp;       &emsp; &emsp;     &emsp;        &emsp;    data set type: inflow_mast_1min, inflow_mast_20Hz, wake_masts_1min, wake_masts_20Hz, loads_1min, loads_20Hz, and lidar  <br>
 &nbsp;&nbsp;&nbsp;   year={}/     &emsp;    &emsp;  &emsp;        year  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;    month={}/     &emsp;   &emsp;        month  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     day={}/   &emsp;    &emsp;   &emsp;        day  <br>
@@ -34,16 +33,15 @@ NSO/  <br>
 
 The structure of the filenames is:
 
-Type_resolution_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet  <br>
+Type_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet  <br>
 YYYY-MM-DD: date of the daily file that contains data from 00:00 UTC to 24:00~UTC  (lidar data contain one scan and the file name also contains hour and minute)<br>
-Type: Inflow_mast, Wake_masts, Loads or Lidar  <br>
-resolution: 1min or 20Hz  <br>
+Type: Inflow_mast_20Hz, Inflow_mast_1min, Wake_masts_20Hz, Wake_masts_1min, Loads_20Hz, Loads_1min, or Lidar  <br>
 
 
 Examples:
 
-NSO/met_masts/inflow_mast/resolution=20Hz/year=2023/month=02/day=22/Inflow_Mast_20Hz_2023-02-22_0h_to_2023-02-23_0h.parquet<br>
-NSO/lidar/resolution=2s/year=2023/month=04/day=02/Lidar_2023-04-02_19-00-17_to_2023-04-02_19-00-17.parquet
+NSO/inflow_mast_20Hz/year=2022/month=02/day=03/Inflow_Mast_20Hz_2022-02-03_00h_to_2022-02-03_23h.parquet<br>
+NSO/lidar/year=2023/month=04/day=02/Lidar_2023-04-02_19-00-17_to_2023-04-02_19-00-17.parquet
 
 
 ## Data Format
