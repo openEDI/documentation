@@ -94,6 +94,7 @@ For dataset quick start and other tutorials see the [BuildingsBench Github Tutor
 
 - [NeurIPS paper](https://arxiv.org/abs/2307.00142) providing additional information on the datasets along with the analyses conducted with BuildingsBench.
 - [End-Use Load Profiles (EULP)](https://data.openei.org/submissions/4520) from which Buildings-900K is derived from.
+- Additional information about the parquet file format can be found [here](https://parquet.apache.org/).
 
 Users of the BuildingsBench data should please cite:
 - Emami, Patrick, Graf, Peter. BuildingsBench: A Large-Scale Dataset of 900K Buildings and Benchmark for Short-Term Load Forecasting. United States: N.p., 31 Dec, 2018. Web. doi: 10.25984/1986147.
