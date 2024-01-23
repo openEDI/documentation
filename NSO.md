@@ -60,4 +60,4 @@ Example Python scripts to read the data are provided at the OEDI data lake.
 
 ## References
 
-[1] Reference to a data paper describing the data set (to be added after publication).
+[1] Egerer, U., Dana, S., Jager, D. et al. Wind and structural loads data measured on parabolic trough solar collectors at an operational power plant. Sci Data 11, 98 (2024). https://doi.org/10.1038/s41597-023-02896-4
