@@ -23,7 +23,7 @@ sedimentary basins.
 ## Directory structure
 
 This dataset contains continuous raw DAS data acquired over a period of two days (November 12-13, 2020) at the beginning of the Imperial 
-Valley Dark Fiber Project. It consists 2,880 files, each labeled with the collection date.
+Valley Dark Fiber Project. It consists 2,880 files of approximately 400 MB each, each labeled with the start time naming scheme DF__UTC_YYYYMMDD_HHMMSS.SSS.h5.
 
 ## Data Format
 
@@ -37,8 +37,8 @@ For a tutorial of accessing and using this data please see the following link:
 
 ## References
 
-For additional information about the objective of this data, users can read the following article:
-  - https://www.osti.gov/pages/biblio/1903439
+For additional information about the objective of this data, users can reference the following article:
+  -  Ajo-Franklin, J, et al. The Imperial Valley Dark Fiber Project: Toward Seismic Studies Using DAS and Telecom Infrastructure for Geothermal Applications. United States. https://doi.org/10.1785/0220220072 
 
 Additional information about the HDF5 file format can be found [here](https://support.hdfgroup.org/HDF5/doc/H5.format.html).
 
