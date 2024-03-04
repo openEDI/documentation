@@ -28,10 +28,7 @@ Within the S3 bucket there is also a folder "models" providing pre-trained Sup3r
 
 ## Data Format
 
-How the data is stored with in each file including a data dictionary with
-- dataset/variable/column names
-- units
-
+The data is provided in high density data file (.h5) separated by year. The variables mentioned in [the Data Format documentation](https://nrel.github.io/rex/misc/examples.nsrdb.html#data-format) are provided in 2 dimensional time-series arrays (called “datasets” in h5 files) with dimensions (time x location). The temporal axis is defined by the time_index dataset, while the positional axis is defined by the meta dataset. We typically refer to a single site in the data with a gid, which is just the index of the site in the meta data (zero-indexed). For storage efficiency each variable has been scaled and stored as an integer. The scale_factor is provided in the scale_factor attribute. The units for the variable data is also provided as an attribute (units).
 
 ## Code Examples
 - For code examples, users can reference the [Sup3r GitHub Repository](https://github.com/NREL/sup3r/tree/main) which includes examples for configuration and using the data in
@@ -39,8 +36,6 @@ How the data is stored with in each file including a data dictionary with
 
 ## References
 
-Any helpful references other documentation
+Users of the Sup3rCC data should use the following citation:
 
-## Disclaimer and Attribution
-
-Optional additional attributes/disclaimers
+   - Buster, Grant, Benton, Brandon, Glaws, Andrew, and King, Ryan. Super-Resolution for Renewable Energy Resource Data with Climate Change Impacts (Sup3rCC). United States: N.p., 19 Apr, 2023. Web. doi: 10.25984/1970814.
