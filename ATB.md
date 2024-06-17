@@ -17,7 +17,7 @@ The R&D Only cases are intended to reflect fundamental technology changes over t
 
 The Market + Policies Case approximate the costs of electricity generation plants with Independent Power Producer financial terms, covering the energy component of electric system planning and operation. Important items that are not included in these costs limit the validity of comparisons across technologies. The following table summarizes these limitations, identifies other analyses, tools, and data sets that are more complete sources for these items, and suggests applications that are affected by these limitations of the ATB.
 
-See [technical limitations on the ATB website](https://atb.nrel.gov/electricity/2021/technical_limitations) for more detailed information.
+See [technical limitations on the ATB website](https://atb.nrel.gov/electricity/2024/technical_limitations) for more detailed information.
 
 ## Directory structure
 
@@ -39,14 +39,20 @@ The most recent annual data is provided in CSV and Apache Parquet format. The da
 
 Column | Type | Description
 -- | -- | --
-  `revision` | bigint | database revision      
   `atb_year` | bigint | year of ATB publication
   `core_metric_key` | string | concatenated unique key  
   `core_metric_parameter` | string | technology and cost performance parameters  
   `core_metric_case` | string | financial case (R&D or Market)
   `crpyears` | bigint | cost recovery period, years
   `technology` | string | technology
+  `technology_alias` | string | technology alias
   `techdetail` | string | technology specific classifications and sub-groups   
+  `techdetail2` | string | technology specific classifications and sub-groups   
+  `resourcedetail` | string | resource specific classifications and sub-groups   
+  `display_name` | string | technology specific classifications and sub-groups for use in Tableau
+  `default` | string | default or subgroup technology
+  `scale` | string | null, utility, commercial or resdidential
+  `maturity` | string | nascent or mature
   `scenario` | string | moderate, conservative and advanced
   `core_metric_variable`| string | projected year
   `units` | string | units
@@ -65,7 +71,7 @@ conn = connect(
     work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
 )
 
-df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2021 where techdetail <> '*' order by technology, techdetail;",conn)
+df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2024 where techdetail <> '*' order by technology, techdetail;",conn)
 ```
 
 OEDI has created a set of tools to facilitate access to open energy data sets, including ATB. Please visit the [open-data-access-tools documentation page](https://openedi.github.io/open-data-access-tools/) for more info. You can find jupyter notebook examples that show how to use the tools in our [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
@@ -74,13 +80,13 @@ OEDI has created a set of tools to facilitate access to open energy data sets, i
 
 Please cite the most relevant publication below when referencing this dataset:
 
-1) NREL (National Renewable Energy Laboratory). 2021. "2021 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. NREL (National Renewable Energy Laboratory). 2021. "2021 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. [https://atb.nrel.gov/](https://atb.nrel.gov/).
+1) NREL (National Renewable Energy Laboratory). 2024. "2024 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. NREL (National Renewable Energy Laboratory). 2024. "2024 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. [https://atb.nrel.gov/](https://atb.nrel.gov/).
 
 ## Errata
 
 Documentaion for the ATB errata can be found on the ATB website:
 
-[https://atb.nrel.gov/electricity/2021/errata](https://atb.nrel.gov/electricity/2021/errata)
+[https://atb.nrel.gov/electricity/2024/errata](https://atb.nrel.gov/electricity/2024/errata)
 
 The Data in the S3 bucket maintains the most up to date version of the parquet and csv files for the years provided.    
 
