@@ -25,6 +25,7 @@ The Data Prize entries were submitted in one of two categories: systems < 5 MW D
 #### > 5 MW DC system IDs:
 
 * **7333** - A 257 MW Single-axis tracker facility in California. This dataset is at a very high time resolution of 10s for all channels.
+* **7334** - This is the same dataset as 7333, except averaged to 5-minute intervals. This makes it more convenient to download and analyze.
 * **9069** - A 38.7 MW Fixed ground-mount facility in Georgia
 
 #### Details on the Prize Datasets
