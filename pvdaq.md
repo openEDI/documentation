@@ -34,6 +34,14 @@ These datasets differ from the regular PVDAQ repository storage architecture (Se
 
 **Note:** *Some of the prize datasets are extremely large and can have 10s of GBs of data. These could take a long time to download so please plan accordingly*
 
+### PV Output
+[PVOutput.org](https://pvoutput.org) is a free service for sharing, comparing and monitoring live solar photovoltaic (PV) and energy consumption data. Through the site, users can upload their own system production data, either manually or via API credentials. To date, over 800MW of systems are being recorded in this way. This PVDAQ site is sharing daily rolled-up energy data for PVOutput systems under a commercial license agreement. Full 5-minute data can be obtained via a [paid commercial license with PVOutput.org](https://pvoutput.org/services.jsp?id=101001).
+
+A subset of systems are shared here which have reached a data completeness / quality score of 0.6 as determined by [solardatatools](https://github.com/slacgismo/solar-data-tools), and a dataset length of at least 4 years. These systems are primarily residential systems which are self-reported by users. Additional details for the systems can be investigated at their owners sites at pvoutput.org, linked through the description pages.
+
+### PVDB
+The PVDB dataset was made available through a collaboration between SunPower and the [SLAC GISMo team](https://esd.slac.stanford.edu/divisions/applied-energy). There are 226 residential sites and 12 commercial rooftop/carport sites in this dataset, all located in Orange County, California.
+
 ## Data Dictionary
 
 The PVDAQ data is partitioned by system_id, year, month and day. Raw data is reported at 15 minute increments in ISO 8601 date and time. The timestamp is striped and data is averaged daily. An example file output is included here.   
