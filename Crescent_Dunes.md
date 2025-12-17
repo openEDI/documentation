@@ -123,6 +123,8 @@ i3, 1x, f6.4, 1x, f8.6, 1x, e12.6
 (repeated for each gate)
 ```
 
+Below the header, the data is stored as described in “Data line 1” and “Data line 2”. For each beam, one “Data line 1” has five columns that describe the beam, followed by a number of “Data line 2” corresponding to the number of range gates, each with four columns describing the data collected at that range gate.
+
 ---
 
 ### Processed NetCDF Files
@@ -165,7 +167,7 @@ Dimensions/coordinates:
 | `probability`   | (range, beamID, scanID) | 2-D PDF value                 | –                      |
 | `time`          | (beamID, scanID)        | Beam time (UTC)               | YYYY-MM-DD hh:mm:ss.ns |
 
-* QC flag values 1–11 are defined in the variable attributes along with all QC parameters.
+\* QC flag values 1–11 are defined in the variable attributes along with all QC parameters.
 
 ---
 
