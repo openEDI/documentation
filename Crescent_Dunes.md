@@ -45,14 +45,14 @@ Example Python scripts to read the data are provided at the OEDI data lake.
 
 # Met masts
 
-# Met mast measurement setup
+## Met mast measurement setup
 
 The met mast setup consists of an inflow mast outside of the northwest edge of the heliostat field, and two wake masts (one behind the outermost heliostat row and one in the interior field between the field northwest edge and the central tower). The masts are equipped with the following instruments:
 
 <img width="975" height="435" alt="image" src="https://github.com/user-attachments/assets/694a06fb-ea71-462d-8204-784878c5ead7" />
 
 
-## The following instrumentation is used:
+The following instrumentation is used:
 
 | Instrument             | Instrument type            | Height | Measured quantity                   | Sampling rate |
 | ---------------------- | -------------------------- | ------ | ----------------------------------- | ------------- |
