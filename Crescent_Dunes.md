@@ -78,7 +78,7 @@ Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD/
   UserN_0006_YYYYMMDD_hhmmss.hpl
 ```
 
-### Sample Header
+Sample Header
 
 ```
 Filename:        User1_0006_20250201_035307.hpl
@@ -92,17 +92,10 @@ Scan type:       User file 1 - stepped
 Focus range:     65535
 Start time:      20250201 03:53:13.78
 Resolution (m/s): 0.0382
+Range of measurement (center of gate): (range gate + 0.5) * gate length
 ```
 
-Range of measurement (center of gate):
-
-```
-(range gate + 0.5) * gate length
-```
-
-### Data Layout
-
-**Data line 1** (beam information):
+Data line 1:
 
 ```
 Decimal time (hours)
@@ -112,13 +105,11 @@ Pitch (degrees)
 Roll (degrees)
 ```
 
-Format:
-
 ```
 f9.6, 1x, f6.2, 1x, f6.2
 ```
 
-**Data line 2** (per range gate):
+Data line 2:
 
 ```
 Range Gate
@@ -127,22 +118,21 @@ Intensity (SNR + 1)
 Beta (m-1 sr-1)
 ```
 
-Format (repeated for each gate):
-
 ```
 i3, 1x, f6.4, 1x, f8.6, 1x, e12.6
+(repeated for each gate)
 ```
 
 ---
 
-## Processed NetCDF Files
+### Processed NetCDF Files
 
 ```
 Crescent_Dunes/lidar/processed_lidar_data/
   cd.lidar.z01.b0.YYYYMMDD.hhmmss.XXX.CD.XXX.nc
 ```
 
-### Global Attributes
+Global Attributes:
 
 * Range gate length (m)
 * Number of gates
@@ -150,7 +140,7 @@ Crescent_Dunes/lidar/processed_lidar_data/
 * Scan mode
 * File history
 
-### Dimensions
+Dimensions/coordinates:
 
 * `range`
 * `beamID`
@@ -169,13 +159,13 @@ Crescent_Dunes/lidar/processed_lidar_data/
 | `elevation`     | (beamID, scanID)        | Beam elevation angle          | °                      |
 | `pitch`         | (range, beamID, scanID) | Lidar pitch angle             | °                      |
 | `roll`          | (range, beamID, scanID) | Lidar roll angle              | °                      |
-| `qc_wind_speed` | (range, beamID, scanID) | QC flag (0 = pass)            | –                      |
+| `qc_wind_speed` | (range, beamID, scanID) | QC flag (0 = pass) *           | –                      |
 | `rws_norm`      | (range, beamID, scanID) | Normalized radial velocity    | m/s                    |
 | `snr_norm`      | (range, beamID, scanID) | Normalized SNR                | dB                     |
 | `probability`   | (range, beamID, scanID) | 2-D PDF value                 | –                      |
 | `time`          | (beamID, scanID)        | Beam time (UTC)               | YYYY-MM-DD hh:mm:ss.ns |
 
-QC flag values 1–11 are defined in the variable attributes along with all QC parameters.
+* QC flag values 1–11 are defined in the variable attributes along with all QC parameters.
 
 ---
 
