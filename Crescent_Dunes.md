@@ -29,13 +29,13 @@ Crescent_Dunes/lidar/processed_lidar_data
   Standardized and quality-controlled RHI scan.
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.{scan}.CD.{scan}_wind_speed.png**
-  Figures showing radial wind speed before and after filtering.
+  Plots showing radial wind speed before and after filtering.
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.{scan}.CD.{scan}_probability.png**
-  Probability distributions of measured points versus radial wind speed and SNR, following Beck & Kühn (2017).
+  Plots of the probability distributions of measured points versus radial wind speed and SNR, following Beck & Kühn (2017).
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.{scan}.CD.{scan}_angles.png**
-  Actual and regularized lidar beam angles during the scan.
+  Plots showing the actual and regularized lidar beam angles during the scan.
 
 ---
 
@@ -48,24 +48,24 @@ All parameters used to generate each quality-controlled NetCDF file are recorded
 
 ### Processing Steps
 
-1. Read scan start time from file metadata and rename file using scan type and timestamp.
-2. Read all lines from `.hpl` file and reformat into an `xarray.Dataset` with dimensions `time` and `range_gate`.
-3. Add metadata from file header as global attributes (range gate length, number of gates, scan type, pulses per ray).
-4. Calculate signal-to-noise ratio (SNR) and radial distance.
-5. Bin azimuth and elevation values and update to bin centers within tolerance.
-6. Remove data outside prescribed limits for range, radial wind speed, and SNR.
-7. Apply dynamic filtering based on Beck & Kühn (2017).
-8. Bin data in space and time.
-9. Normalize radial wind speed and SNR within each bin.
-10. Remove bins with insufficient samples.
-11. Remove points with standard error exceeding the limit.
-12. Compute a two-dimensional histogram of normalized radial wind speed and SNR.
-13. Identify probability threshold where dispersion increases beyond a prescribed value.
-14. Remove points below the probability threshold.
-15. Remove bins without sufficient remaining data.
-16. Re-index data into dimensions `[range, beamID, scanID]` based on scan type (PPI or RHI).
-17. Add descriptive attributes and units to all variables and global attributes.
-18. Generate and save figures documenting the quality control procedure.
+1.	Start time of scan is read from file metadata (header) and used to rename file, along with scan type
+2.	Read in all lines from .hpl file and reformat into xarray with dimensions of time and range gate
+3.	Add metadata from file header as dataset attributes, including the range gate length, number of range gates, scan type, and pulses per ray
+4.	Calculate SNR and radial distance (depends on gate length and gate overlapping)
+5.	Bin azimuth and elevation values, then update to bin centers within specified tolerance
+6.	Remove data outside prescribed range, radial wind speed (rws), and SNR limits
+7.	Perform dynamic filtering based on Beck and Kühn (2017)
+  a.	Bin data in space and time
+  b.	Normalize rws and SNR in each bin
+  c.	Remove bins without enough members
+  d.	Remove points with standard error outside the limit
+  e.	Calculate two-dimensional histogram of normalized rws and SNR
+  f.	Identify probability threshold where the dispersion increases above a prescribed amount
+  g.	Remove points below probability threshold
+  h.	Remove bins without enough remaining points
+8.	Re-index file with number of beams per scan and number of scans, to have dimensions of [range, beamID, scanID] based on scan type (i.e., PPI or RHI)
+9.	Add attributes to variables explaining their meanings and units, along with global file attributes
+10.	Make and save figures showing the quality and control procedure
 
 ---
 
