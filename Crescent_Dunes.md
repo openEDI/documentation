@@ -109,11 +109,11 @@ Type_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet
 Examples:
 
 ```
-CD/inflow_mast_20Hz/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+Crescent_Dunes/inflow_mast_20Hz/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
 ```
 
 ```
-CD/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+Crescent_Dunes/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
 ```
 
 ---
