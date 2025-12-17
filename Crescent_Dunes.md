@@ -14,6 +14,18 @@ The measurement setup is installed within the heliostat field of the Crescent Du
 
 <img width="975" height="671" alt="image" src="https://github.com/user-attachments/assets/038662ae-0c03-44ef-8031-fc45775fdd33" />
 
+### Details of the met mast, lidar and loads instrumentation
+
+<img width="975" height="453" alt="image" src="https://github.com/user-attachments/assets/d8320e29-6526-4172-988a-024745e67b46" />
+
+## File structure
+
+The general file structure is:
+CD/lidar
+CD/inflow_mast_20Hz
+CD/inflow_mast_1min
+CD/wake_masts_20Hz
+CD/wake_masts_1min
 
 
 # Met masts
