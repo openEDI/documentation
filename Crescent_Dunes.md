@@ -23,14 +23,17 @@ The measurement setup is installed within the heliostat field of the Crescent Du
 ## Directory structure
 
 Top-level Structure
+
+```
 CD/
 ├── lidar/
 ├── inflow_mast_20Hz/
 ├── inflow_mast_1min/
 ├── wake_masts_20Hz/
 └── wake_masts_1min/
+```
 
-The general file structure separates lidar data from inflow and wake mast measurements, each provided at native (20 Hz) and averaged (1 minute) temporal resolution.
+The general file structure separates lidar data from inflow and wake mast measurements, each provided at native (20 Hz) and averaged (1 minute) temporal resolution. Loads data will be added in the future.
 
 
 # Met masts
