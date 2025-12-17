@@ -124,11 +124,7 @@ CD/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_
 
 Data are stored in the Parquet file format. The variables and units in each dataset are listed in [1], table 2. The only variables not included in this dataset are length scales.
 
----
 
-## References
-
-[1] Egerer, U., Dana, S., Jager, D. et al. *Wind and structural loads data measured on parabolic trough solar collectors at an operational power plant*. Sci Data 11, 98 (2024). [https://doi.org/10.1038/s41597-023-02896-4](https://doi.org/10.1038/s41597-023-02896-4)
 
 
 
@@ -188,7 +184,7 @@ All parameters used to generate each quality-controlled NetCDF file are recorded
 4.	Calculate SNR and radial distance (depends on gate length and gate overlapping)
 5.	Bin azimuth and elevation values, then update to bin centers within specified tolerance
 6.	Remove data outside prescribed range, radial wind speed (rws), and SNR limits
-7.	Perform dynamic filtering based on Beck and Kühn (2017)\
+7.	Perform dynamic filtering based on [2]\
   a.	Bin data in space and time\
   b.	Normalize rws and SNR in each bin\
   c.	Remove bins without enough members\
@@ -227,32 +223,18 @@ Focus range:     65535
 Start time:      20250201 03:53:13.78
 Resolution (m/s): 0.0382
 Range of measurement (center of gate): (range gate + 0.5) * gate length
-```
-
 Data line 1:
-
-```
 Decimal time (hours)
 Azimuth (degrees)
 Elevation (degrees)
 Pitch (degrees)
 Roll (degrees)
-```
-
-```
 f9.6, 1x, f6.2, 1x, f6.2
-```
-
 Data line 2:
-
-```
 Range Gate
 Doppler (m/s)
 Intensity (SNR + 1)
 Beta (m-1 sr-1)
-```
-
-```
 i3, 1x, f6.4, 1x, f8.6, 1x, e12.6
 (repeated for each gate)
 ```
@@ -268,7 +250,7 @@ Crescent_Dunes/lidar/processed_lidar_data/
   cd.lidar.z01.b0.YYYYMMDD.hhmmss.XXX.CD.XXX.nc
 ```
 
-Global Attributes:
+Global Attributes (selection of most important ones):
 
 * Range gate length (m)
 * Number of gates
@@ -322,3 +304,12 @@ Lidar settings changed slightly throughout the campaign to account for changing 
 | 2024-09-20 | 23:45    | 18 m       | 3600 m            | 3000     | PPI    | [180,180]     | N/A          | [193,283]   | 1°         | RHI    | [-2,5]        | 0.05°        | [64,64]     | N/A        | Reduced resolution                        |
 | 2024-12-05 | 19:00    | 18 m       | 3600 m            | 10000    | PPI    | [180,180]     | N/A          | [193,283]   | 1°         | RHI    | [-2,5]        | 0.05°        | [64,64]     | N/A        | Increased averaging                       |
 | 2025-02-26 | 23:00    | 18 m       | 3600 m            | 10000    | PPI    | [180,180]     | N/A          | [193,283]   | 1°         | RHI    | [-2,5]        | 0.05°        | [64,64]     | N/A        | Repeat scans every 16 min                 |
+
+
+---
+
+## References
+
+[1] Egerer, U., Dana, S., Jager, D. et al. *Wind and structural loads data measured on parabolic trough solar collectors at an operational power plant*. Sci Data 11, 98 (2024). [https://doi.org/10.1038/s41597-023-02896-4](https://doi.org/10.1038/s41597-023-02896-4)
+
+[2] Beck, H., & Kühn, M. (2017). Dynamic data filtering of long-range Doppler LiDAR wind speed measurements. Remote sensing, 9(6), 561.
