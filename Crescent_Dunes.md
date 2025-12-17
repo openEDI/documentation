@@ -54,15 +54,15 @@ All parameters used to generate each quality-controlled NetCDF file are recorded
 4.	Calculate SNR and radial distance (depends on gate length and gate overlapping)
 5.	Bin azimuth and elevation values, then update to bin centers within specified tolerance
 6.	Remove data outside prescribed range, radial wind speed (rws), and SNR limits
-7.	Perform dynamic filtering based on Beck and Kühn (2017)
-  a.	Bin data in space and time
-  b.	Normalize rws and SNR in each bin
-  c.	Remove bins without enough members
-  d.	Remove points with standard error outside the limit
-  e.	Calculate two-dimensional histogram of normalized rws and SNR
-  f.	Identify probability threshold where the dispersion increases above a prescribed amount
-  g.	Remove points below probability threshold
-  h.	Remove bins without enough remaining points
+7.	Perform dynamic filtering based on Beck and Kühn (2017)\
+  a.	Bin data in space and time\
+  b.	Normalize rws and SNR in each bin\
+  c.	Remove bins without enough members\
+  d.	Remove points with standard error outside the limit\
+  e.	Calculate two-dimensional histogram of normalized rws and SNR\
+  f.	Identify probability threshold where the dispersion increases above a prescribed amount\
+  g.	Remove points below probability threshold\
+  h.	Remove bins without enough remaining points\
 8.	Re-index file with number of beams per scan and number of scans, to have dimensions of [range, beamID, scanID] based on scan type (i.e., PPI or RHI)
 9.	Add attributes to variables explaining their meanings and units, along with global file attributes
 10.	Make and save figures showing the quality and control procedure
