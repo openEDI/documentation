@@ -3,7 +3,7 @@
 ## Directory Structure
 
 ```
-CD/lidar/raw_lidar_data/YYYYMM/YYYYMMDD
+Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD
 ```
 
 * **Background_DDMMYY-hhmmss.txt**
@@ -19,7 +19,7 @@ CD/lidar/raw_lidar_data/YYYYMM/YYYYMMDD
   Stare scan, conducted in between user-prescribed scans.
 
 ```
-CD/lidar/processed_lidar_data
+Crescent_Dunes/lidar/processed_lidar_data
 ```
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.PPI.CD.PPI.nc**
@@ -74,7 +74,7 @@ All parameters used to generate each quality-controlled NetCDF file are recorded
 ### Raw Lidar Files
 
 ```
-CrescentDunes_Lidar/raw_lidar_data/YYYYMM/YYYYMMDD/
+Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD/
   UserN_0006_YYYYMMDD_hhmmss.hpl
 ```
 
@@ -138,7 +138,7 @@ i3, 1x, f6.4, 1x, f8.6, 1x, e12.6
 ## Processed NetCDF Files
 
 ```
-CrescentDunes_Lidar/processed_lidar_data/
+Crescent_Dunes/lidar/processed_lidar_data/
   cd.lidar.z01.b0.YYYYMMDD.hhmmss.XXX.CD.XXX.nc
 ```
 
