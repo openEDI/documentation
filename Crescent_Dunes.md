@@ -44,7 +44,7 @@ Crescent_Dunes/lidar/processed_lidar_data
 Quality control is implemented using **LiDARGO**:
 [https://github.com/StefanoWind/FIEXTA/tree/main/lidargo/lidargo](https://github.com/StefanoWind/FIEXTA/tree/main/lidargo/lidargo)
 
-All parameters used to generate each quality-controlled NetCDF file are recorded in the attributes of the `qc_wind_speed` variable.
+All parameters used to generate each quality-controlled NetCDF file are recorded in the attributes of the `qc_wind_speed` variable (see “File structure” section).
 
 ### Processing Steps
 
