@@ -69,7 +69,7 @@ The following instrumentation is used:
 | Mid Sonic Anemometer   | Gill Windmaster            | 5.5m   | 3D wind, sonic temperature          | 20Hz          |
 | Low Sonic Anemometer   | Gill Windmaster            | 2.75m  | 3D wind, sonic temperature          | 20Hz          |
 
-A Campbell CR1000X data logger collected the input signals of all met mast instruments and a GPS receiver. The GPS time stamp was used for synchronization with other data streams. Data were transferred to NLR servers hourly using the data logger server software via a cellular modem.
+One Campbell CR1000X data logger for each mast collected the input signals of all met mast instruments and a GPS receiver. The GPS time stamp was used for synchronization with other data streams. Data were transferred to NLR servers hourly using the data logger server software via a cellular modem.
 
 ---
 
