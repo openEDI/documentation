@@ -25,7 +25,7 @@ The measurement setup is installed within the heliostat field of the Crescent Du
 Top-level Structure
 
 ```
-CD/
+Crescent_Dunes/
 ├── lidar/
 ├── inflow_mast_20Hz/
 ├── inflow_mast_1min/
@@ -35,8 +35,100 @@ CD/
 
 The general file structure separates lidar data from inflow and wake mast measurements, each provided at native (20 Hz) and averaged (1 minute) temporal resolution. Loads data will be added in the future.
 
+## Code examples
+
+Example Python scripts to read the data are provided at the OEDI data lake.
+
+---
+
+
 
 # Met masts
+
+# Met mast measurement setup
+
+The met mast setup consists of an inflow mast outside of the northwest edge of the heliostat field, and two wake masts (one behind the outermost heliostat row and one in the interior field between the field northwest edge and the central tower). The masts are equipped with the following instruments:
+
+<img width="975" height="435" alt="image" src="https://github.com/user-attachments/assets/694a06fb-ea71-462d-8204-784878c5ead7" />
+
+
+## The following instrumentation is used:
+
+| Instrument             | Instrument type            | Height | Measured quantity                   | Sampling rate |
+| ---------------------- | -------------------------- | ------ | ----------------------------------- | ------------- |
+| **Inflow mast**        |                            |        |                                     |               |
+| Top Sonic Anemometer   | Gill Windmaster Pro        | 11m    | 3D wind, sonic temperature          | 20Hz          |
+| Mid Sonic Anemometer   | Gill Windmaster            | 5.5m   | 3D wind, sonic temperature          | 20Hz          |
+| Low Sonic Anemometer   | Gill Windmaster            | 2.75m  | 3D wind, sonic temperature          | 20Hz          |
+| Cup Anemometer         | Thies First Class Advanced | 15m    | 1D wind                             | 1Hz           |
+| Upper temperature      | RTD PT100                  | 11m    | Temperature                         | 1Hz           |
+| Lower Temperature & RH | Vaisala PTU307             | 2.65m  | Temperature, relative humidity (RH) | 1Hz           |
+| Pressure               | Vaisala PTU307             | 1.3m   | Atmospheric pressure                | 1Hz           |
+| **Wake masts 1 & 3**   |                            |        |                                     |               |
+| Top Sonic Anemometer   | Gill Windmaster            | 11m    | 3D wind, sonic temperature          | 20Hz          |
+| Mid Sonic Anemometer   | Gill Windmaster            | 5.5m   | 3D wind, sonic temperature          | 20Hz          |
+| Low Sonic Anemometer   | Gill Windmaster            | 2.75m  | 3D wind, sonic temperature          | 20Hz          |
+
+A Campbell CR1000X data logger collected the input signals of all met mast instruments and a GPS receiver. The GPS time stamp was used for synchronization with other data streams. Data were transferred to NLR servers hourly using the data logger server software via a cellular modem.
+
+---
+
+## Data processing and quality control
+
+The met mast data for inflow and wake masts is processed analog to a prior met mast dataset, described in [1].
+
+---
+
+## Directory structure
+
+The directory structure is:
+
+```
+Crescent_Dunes/
+
+  {}/            data set type: inflow_mast_1min, inflow_mast_20Hz, wake_masts_1min, wake_masts_20Hz, loads_1min, loads_20Hz, or lidar
+
+    year={}/     year
+
+     month={}/   month
+
+      day={}/    day
+```
+
+---
+
+The structure of the filenames is:
+
+```
+Type_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet
+```
+
+* **YYYY-MM-DD**: date of the daily file that contains data from 00:00 UTC to 24:00 UTC
+* **Type**: Inflow_mast_20Hz, Inflow_mast_1min, Wake_masts_20Hz, Wake_masts_1min
+
+Examples:
+
+```
+CD/inflow_mast_20Hz/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+```
+
+```
+CD/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+```
+
+---
+
+
+
+## Data format
+
+Data are stored in the Parquet file format. The variables and units in each dataset are listed in [1], table 2. The only variables not included in this dataset are length scales.
+
+---
+
+## References
+
+[1] Egerer, U., Dana, S., Jager, D. et al. *Wind and structural loads data measured on parabolic trough solar collectors at an operational power plant*. Sci Data 11, 98 (2024). [https://doi.org/10.1038/s41597-023-02896-4](https://doi.org/10.1038/s41597-023-02896-4)
 
 
 
