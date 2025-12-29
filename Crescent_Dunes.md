@@ -25,7 +25,7 @@ The measurement setup is installed within the heliostat field of the Crescent Du
 Top-level Structure
 
 ```
-Crescent_Dunes/
+crescent_dunes/
 ├── lidar/
 ├── inflow_mast_20Hz/
 ├── inflow_mast_1min/
@@ -88,6 +88,8 @@ Crescent_Dunes/
 
   {}/            data set type: inflow_mast_1min, inflow_mast_20Hz, wake_masts_1min, wake_masts_20Hz, loads_1min, loads_20Hz, or lidar
 
+   {}/           version: e.g. v1.0.0
+
     year={}/     year
 
      month={}/   month
@@ -109,11 +111,11 @@ Type_YYYY-MM-DD_00h_to_YYYY-MM-DD_00h.parquet
 Examples:
 
 ```
-Crescent_Dunes/inflow_mast_20Hz/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+crescent_dunes/v1.0.0/inflow_mast_20Hz/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
 ```
 
 ```
-Crescent_Dunes/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
+crescent_dunes/v1.0.0/wake_masts_1min/year=2025/month=02/day=24/Inflow_Mast_20Hz_2025-02-24_00h_to_2025-02-25_00h.parquet
 ```
 
 ---
@@ -133,7 +135,7 @@ Data are stored in the Parquet file format. The variables and units in each data
 ## Directory Structure
 
 ```
-Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD
+crescent_dunes/lidar/v1.0.0/raw_lidar_data/YYYYMM/YYYYMMDD
 ```
 
 * **Background_DDMMYY-hhmmss.txt**
@@ -149,7 +151,7 @@ Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD
   Stare scan, conducted in between user-prescribed scans.
 
 ```
-Crescent_Dunes/lidar/processed_lidar_data
+crescent_dunes/lidar/v1.0.0/processed_lidar_data
 ```
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.PPI.CD.PPI.nc**
@@ -162,7 +164,7 @@ Crescent_Dunes/lidar/processed_lidar_data
   Plots showing radial wind speed before and after filtering.
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.{scan}.CD.{scan}_probability.png**
-  Plots of the probability distributions of measured points versus radial wind speed and SNR, following Beck & Kühn (2017).
+  Plots of the probability distributions of measured points versus radial wind speed and SNR, following [2].
 
 * **cd.lidar.z01.b0.YYYYMMDD.hhmmss.{scan}.CD.{scan}_angles.png**
   Plots showing the actual and regularized lidar beam angles during the scan.
@@ -204,7 +206,7 @@ All parameters used to generate each quality-controlled NetCDF file are recorded
 ### Raw Lidar Files
 
 ```
-Crescent_Dunes/lidar/raw_lidar_data/YYYYMM/YYYYMMDD/
+crescent_dunes/lidar/v1.0.0/raw_lidar_data/YYYYMM/YYYYMMDD/
   UserN_0006_YYYYMMDD_hhmmss.hpl
 ```
 
@@ -246,7 +248,7 @@ Below the header, the data is stored as described in “Data line 1” and “Da
 ### Processed NetCDF Files
 
 ```
-Crescent_Dunes/lidar/processed_lidar_data/
+crescent_dunes/lidar/v1.0.0/processed_lidar_data/
   cd.lidar.z01.b0.YYYYMMDD.hhmmss.XXX.CD.XXX.nc
 ```
 
