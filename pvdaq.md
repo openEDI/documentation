@@ -25,6 +25,7 @@ The Data Prize entries were submitted in one of two categories: systems < 5 MW D
 #### > 5 MW DC system IDs:
 
 * **7333** - A 257 MW Single-axis tracker facility in California. This dataset is at a very high time resolution of 10s for all channels.
+* **7334** - This is the same dataset as 7333, except averaged to 5-minute intervals. This makes it more convenient to download and analyze.
 * **9069** - A 38.7 MW Fixed ground-mount facility in Georgia
 
 #### Details on the Prize Datasets
@@ -32,6 +33,14 @@ The Data Prize entries were submitted in one of two categories: systems < 5 MW D
 These datasets differ from the regular PVDAQ repository storage architecture (See below) where data is broken down by year, month, and day. In each of the prize repositories the available metadata, any support files, and the entire dataset as was submittied and curated is available. Some of these the datasets are broken down by sensor channel set type, and in others the data is labeled by sensor channel tag names or bundles.
 
 **Note:** *Some of the prize datasets are extremely large and can have 10s of GBs of data. These could take a long time to download so please plan accordingly*
+
+### PV Output
+[PVOutput.org](https://pvoutput.org) is a free service for sharing, comparing and monitoring live solar photovoltaic (PV) and energy consumption data. Through the site, users can upload their own system production data, either manually or via API credentials. To date, over 800MW of systems are being recorded in this way. This PVDAQ site is sharing daily rolled-up energy data for PVOutput systems under a commercial license agreement. Full 5-minute data can be obtained via a [paid commercial license with PVOutput.org](https://pvoutput.org/services.jsp?id=101001).
+
+A subset of systems are shared here which have reached a data completeness / quality score of 0.6 as determined by [solardatatools](https://github.com/slacgismo/solar-data-tools), and a dataset length of at least 4 years. These systems are primarily residential systems which are self-reported by users. Additional details for the systems can be investigated at their owners sites at pvoutput.org, linked through the description pages.
+
+### PVDB
+The PVDB dataset was made available through a collaboration between SunPower and the [SLAC GISMo team](https://esd.slac.stanford.edu/divisions/applied-energy). There are 226 residential sites and 12 commercial rooftop/carport sites in this dataset, all located in Orange County, California.
 
 ## Data Dictionary
 
