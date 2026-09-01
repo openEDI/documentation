@@ -7,7 +7,7 @@ Office of Energy Efficiency & Renewable Energy.
 
 To inform electric and transportation sector analysis in the United States, each year NREL provides a robust set of modeling input assumptions for energy technologies, and a diverse set of potential electricity generation futures or modeling scenarios (Standard Scenarios).
 
-The ATB is a populated framework to identify technology-specific cost and performance paramters or other investment decision metrics across a range of fuel price conditions as well as site-specific conditions for electric generation technologies at present and with projections through 2050.  
+The ATB is a populated framework to identify technology-specific cost and performance parameters or other investment decision metrics across a range of fuel price conditions as well as site-specific conditions for electric generation technologies at present and with projections through 2050.  
 
 ## Model
 
@@ -15,9 +15,9 @@ The purpose of the ATB is to provide CAPEX, O&M, and capacity factor estimates f
 
 The R&D Only cases are intended to reflect fundamental technology changes over time — not short-term market variations in pricing, not changes in interest rates or other project finance elements, and not macroeconomic influences such as commodity price fluctuations. These cases attempt to estimate the potential effects of technology innovation across the renewable electricity generation technologies under comparable levels of probability. This is inherently uncertain.
 
-The Market + Policies Case approximate the costs of electricity generation plants with Independent Power Producer financial terms, covering the energy component of electric system planning and operation. Important items that are not included in these costs limit the validity of comparisons across technologies. The following table summarizes these limitations, identifies other analyses, tools, and data sets that are more complete sources for these items, and suggests applications that are affected by these limitations of the ATB.
+The with tax credit cases approximate the costs of electricity generation plants with Independent Power Producer financial terms, covering the energy component of electric system planning and operation. Important items that are not included in these costs limit the validity of comparisons across technologies. The following table summarizes these limitations, identifies other analyses, tools, and data sets that are more complete sources for these items, and suggests applications that are affected by these limitations of the ATB.
 
-See [technical limitations on the ATB website](https://atb.nrel.gov/electricity/2024/technical_limitations) for more detailed information.
+See [technical limitations on the ATB website](https://atb.nlr.gov/electricity/2025/technical_limitations) for more detailed information.
 
 ## Directory structure
 
@@ -29,9 +29,9 @@ The files are stored by type and then by year. The file types are parquet and cs
 
 ## Vintage
 
-Annual data for 2015 through the previous year can be found at [https://atb.nrel.gov/archive](https://atb.nrel.gov/archive)
+Annual data for 2015 through the previous year can be found at [https://atb.nlr.gov/archive](https://atb.nlr.gov/archive)
 
-The current year data can be found at [https://atb.nrel.gov/data](https://atb.nrel.gov/data)
+The current year data can be found at [https://atb.nlr.gov/data](https://atb.nlr.gov/data)
 
 ## Data Format
 
@@ -42,7 +42,8 @@ Column | Type | Description
   `atb_year` | bigint | year of ATB publication
   `core_metric_key` | string | concatenated unique key  
   `core_metric_parameter` | string | technology and cost performance parameters  
-  `core_metric_case` | string | financial case (R&D or Market)
+  `core_metric_case` | string | financial case (R&D, R&D + TC, Exp, EXP + TC)
+  `tax_credits_case` | string | tax credits case (No credits, ITC, PTC, ITC + PTC)
   `crpyears` | bigint | cost recovery period, years
   `technology` | string | technology
   `technology_alias` | string | technology alias
@@ -51,12 +52,14 @@ Column | Type | Description
   `resourcedetail` | string | resource specific classifications and sub-groups   
   `display_name` | string | technology specific classifications and sub-groups for use in Tableau
   `default` | string | default or subgroup technology
-  `scale` | string | null, utility, commercial or resdidential
+  `scale` | string | null, utility, commercial or residential
   `maturity` | string | nascent or mature
   `scenario` | string | moderate, conservative and advanced
   `core_metric_variable`| string | projected year
   `units` | string | units
   `value` | double | value
+  `ref_summary` | string | row level reference for value
+  `ref_evidence_type` | string | reference evidence type classification
 
 ## Python Examples
 
@@ -71,7 +74,7 @@ conn = connect(
     work_group='<USER SPECIFIC WORKGROUP>'  ##specify workgroup if exists
 )
 
-df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2024 where techdetail <> '*' order by technology, techdetail;",conn)
+df = pd.read_sql("SELECT distinct technology, techdetail from oedi_atb.atb_electricity_parquet_2025 where techdetail <> '*' order by technology, techdetail;",conn)
 ```
 
 OEDI has created a set of tools to facilitate access to open energy data sets, including ATB. Please visit the [open-data-access-tools documentation page](https://openedi.github.io/open-data-access-tools/) for more info. You can find jupyter notebook examples that show how to use the tools in our [examples repository](https://github.com/openEDI/open-data-access-tools/tree/integration/examples)
@@ -80,13 +83,13 @@ OEDI has created a set of tools to facilitate access to open energy data sets, i
 
 Please cite the most relevant publication below when referencing this dataset:
 
-1) NREL (National Renewable Energy Laboratory). 2024. "2024 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. NREL (National Renewable Energy Laboratory). 2024. "2024 Annual Technology Baseline." Golden, CO: National Renewable Energy Laboratory. [https://atb.nrel.gov/](https://atb.nrel.gov/).
+1) NLR (National Laboratory of the Rockies). 2026. "2025 Electricity Annual Technology Baseline." Golden, CO: National Laboratory of the Rockies.[https://atb.nrel.gov/](https://atb.nlr.gov/).
 
 ## Errata
 
 Documentaion for the ATB errata can be found on the ATB website:
 
-[https://atb.nrel.gov/electricity/2024/errata](https://atb.nrel.gov/electricity/2024/errata)
+[https://atb.nlr.gov/electricity/2025/errata](https://atb.nlr.gov/electricity/2025/errata)
 
 The Data in the S3 bucket maintains the most up to date version of the parquet and csv files for the years provided.    
 
@@ -94,13 +97,13 @@ The Data in the S3 bucket maintains the most up to date version of the parquet a
 
 DISCLAIMER AGREEMENT
 
-These detailed electricity generation technology cost and performance data ("Data") are provided by the National Renewable Energy Laboratory ("NREL"), which is operated by the Alliance for Sustainable Energy LLC ("Alliance") for the U.S. Department of Energy (the "DOE").
+These detailed electricity generation technology cost and performance data ("Data") are provided by the National Laboratory of the Rockies ("NLR"), which is operated by the Alliance for Sustainable Energy LLC ("Alliance") for the U.S. Department of Energy (the "DOE").
 
 It is recognized that disclosure of these Data are provided under the following conditions and warnings: (1) these Data have been prepared for reference purposes only; (2) these Data consist of forecasts, estimates, or assumptions made on a best-efforts basis, based upon expectations of current and future conditions at the time they were developed; and (3) these Data were prepared with existing information and are subject to change without notice.
 
-The user understands that DOE/NREL/ALLIANCE are not obligated to provide the user with any support, consulting, training or assistance of any kind with regard to the use of the Data or to provide the user with any updates, revisions or new versions thereof. DOE, NREL, and ALLIANCE do not guarantee or endorse any results generated by use of the Data, and user is entirely responsible for the results and any reliance on the results or the Data in general.
+The user understands that DOE/NLR/ALLIANCE are not obligated to provide the user with any support, consulting, training or assistance of any kind with regard to the use of the Data or to provide the user with any updates, revisions or new versions thereof. DOE, NLR, and ALLIANCE do not guarantee or endorse any results generated by use of the Data, and user is entirely responsible for the results and any reliance on the results or the Data in general.
 
-The user understands that DOE/NREL/ALLIANCE are not obligated to provide the user with any support, consulting, training or assistance of any kind with regard to the use of the Data or to provide the user with any updates, revisions or new versions thereof. DOE, NREL, and ALLIANCE do not guarantee or endorse any results generated by use of the Data, and user is entirely responsible for the results and any reliance on the results or the Data in general.
+The user understands that DOE/NLR/ALLIANCE are not obligated to provide the user with any support, consulting, training or assistance of any kind with regard to the use of the Data or to provide the user with any updates, revisions or new versions thereof. DOE, NLR, and ALLIANCE do not guarantee or endorse any results generated by use of the Data, and user is entirely responsible for the results and any reliance on the results or the Data in general.
 
-USER AGREES TO INDEMNIFY DOE/NREL/ALLIANCE AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS, AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND, INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO USER'S USE OF THE DATA. THE DATA ARE PROVIDED BY DOE/NREL/ALLIANCE "AS IS," AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL DOE/NREL/ALLIANCE BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER, INCLUDING BUT NOT LIMITED TO CLAIMS ASSOCIATED WITH THE LOSS OF DATA OR PROFITS, THAT MAY RESULT FROM AN ACTION IN CONTRACT, NEGLIGENCE OR OTHER TORTIOUS CLAIM THAT ARISES OUT OF OR IN CONNECTION WITH THE ACCESS, USE OR PERFORMANCE OF THE DATA.
+USER AGREES TO INDEMNIFY DOE/NLR/ALLIANCE AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS, AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND, INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO USER'S USE OF THE DATA. THE DATA ARE PROVIDED BY DOE/NLR/ALLIANCE "AS IS," AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL DOE/NLR/ALLIANCE BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER, INCLUDING BUT NOT LIMITED TO CLAIMS ASSOCIATED WITH THE LOSS OF DATA OR PROFITS, THAT MAY RESULT FROM AN ACTION IN CONTRACT, NEGLIGENCE OR OTHER TORTIOUS CLAIM THAT ARISES OUT OF OR IN CONNECTION WITH THE ACCESS, USE OR PERFORMANCE OF THE DATA.
 >>>>>>> Stashed changes
